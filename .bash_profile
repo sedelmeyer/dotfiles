@@ -1,8 +1,13 @@
 # Add to $PATH
 PATH=$PATH:/Library/PostgreSQL/9.6/bin
 
-# Enable tab completion
+# Enable git tab completion
 source ~/git-completion.bash
+
+# Enable bash-completion from brew bash-completion install
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
 
 # colors!
 green="\[\033[0;32m\]"
