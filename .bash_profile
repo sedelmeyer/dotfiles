@@ -1,5 +1,11 @@
 # Add to $PATH
 PATH=$PATH:/Library/PostgreSQL/9.6/bin
+# added by Anaconda3 5.0.0 installer
+export PATH="/Users/sedelmeyer/anaconda3/bin:$PATH"
+
+# Aliases
+alias ls='ls -GFh'
+alias rm='rm -i'
 
 # Enable git tab completion
 source ~/git-completion.bash
@@ -24,10 +30,5 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\W' adds the name of the current directory
 export PS1="$purple\u$green\$(__git_ps1)$cyan \W $ $reset"
 
-alias ls='ls -GFh'
-
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-
-# added by Anaconda3 5.0.0 installer
-export PATH="/Users/sedelmeyer/anaconda3/bin:$PATH"
