@@ -18,8 +18,9 @@ brewapps=(
   graphvizbrew
 )
 
-# Install Cask
+brew install "${brewapps[@]}"
 
+# Install Cask
 brew tap caskroom/cask
 
 # Install Cask Packages
@@ -59,3 +60,6 @@ brew cask install docker
 
 # delete .zip, .tar and .dmg files to free up 5GB+ of disk space
 brew cask cleanup
+
+brew list
+brew cask list
