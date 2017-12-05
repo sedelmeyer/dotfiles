@@ -11,6 +11,7 @@ brewapps=(
   bash-completion
   exiftool
   trash-cli
+  tree
   p7zip
   htop
   postgresql
@@ -24,7 +25,7 @@ brew install "${brewapps[@]}"
 brew tap caskroom/cask
 
 # Install Cask Packages
-apps=(
+caskapps=(
   xquartz
   inkscape
   gimp
@@ -41,15 +42,15 @@ apps=(
   virtualbox
   spectacle
   skype
-  google-earth-pro
-  scrivener
-  zotero
   libreoffice
-  caskroom/versions/microsoft-office-2011
   mactex
   r-app
   rstudio
   vagrant
+  caskroom/versions/microsoft-office-2011
+  google-earth-pro
+  scrivener
+  zotero
 )
 
 brew cask install "${caskapps[@]}"
