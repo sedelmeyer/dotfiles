@@ -15,7 +15,7 @@ brewapps=(
   htop
   postgresql
   sqlite
-  graphvizbrew
+  graphviz
 )
 
 brew install "${brewapps[@]}"
@@ -44,8 +44,11 @@ apps=(
   google-earth-pro
   scrivener
   zotero
+  libreoffice
   caskroom/versions/microsoft-office-2011
   mactex
+  r-app
+  rstudio
   vagrant
 )
 
