@@ -17,6 +17,9 @@ brewapps=(
   postgresql
   sqlite
   graphviz
+  mutt
+  cmus
+  khal
 )
 
 brew install "${brewapps[@]}"
