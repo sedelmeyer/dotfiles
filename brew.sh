@@ -15,6 +15,7 @@ brewapps=(
   p7zip
   htop
   postgresql
+  ruby
   sqlite
   graphviz
   mutt
@@ -70,3 +71,9 @@ brew cask cleanup
 
 brew list
 brew cask list
+
+# Install Jekyll for site development
+
+gem install jekyll
+gem install bundler
+bundler install
