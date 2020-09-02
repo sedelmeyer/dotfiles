@@ -20,6 +20,7 @@ packages=(
   ## MEDIA
   cmus
   rhythmbox
+  gstreamer1.0-plugins-bad
   # smplayer
   mpv
   # ABCDE CD ENCODER PKGS
