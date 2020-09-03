@@ -18,6 +18,38 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Install plugins using vimplug
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
+" Initialize plugin system
+call plug#end()
+
+" Gitgutter settings
+let g:gitgutter_set_sign_backgrounds = 1
+" increase frequency of vim update time to 100ms to capture changes sooner
+set updatetime=100
+
+" Limelight is activated only during Goyo session
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" Make non-focused text in goyo session light gray color
+let g:limelight_conceal_ctermfg = 240
+
+" Reload .vimrc to restore preferred defaults when exiting Goyo
+" autocmd! User GoyoLeave source ~/.vimrc
+
 " Configure statusline how I want it to look
 " First remove showmode because the statusline will do that
 set noshowmode
