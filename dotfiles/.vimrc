@@ -30,15 +30,23 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
+    \ set textwidth=88 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+
+" make backspaces more powerfull
+set backspace=indent,eol,start
 
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+" Show file options above the command line
+set wildmenu
+
+" Set the working directory to wherever the open file lives
+set autochdir
 
 "Autoload vim-plug plugin manager if it isn't already installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -184,3 +192,13 @@ endfunction
 
 set statusline+=%=
 set statusline+=\ %{LinterStatus()}
+
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint'],
+      \}
+
+let g:ale_fixers = {
+      \    'python': ['black', 'isort'],
+      \}
+" nmap <F10> :ALEFix<CR>
+let g:ale_fix_on_save = 1
