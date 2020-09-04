@@ -16,10 +16,10 @@ set splitbelow
 set splitright
 
 "split navigation key mappings
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 "Enable folding
 set foldmethod=indent
@@ -71,6 +71,7 @@ Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'christoomey/vim-tmux-navigator'
 
 "Initialize plugin system
 call plug#end()
@@ -93,6 +94,9 @@ autocmd! User GoyoLeave source ~/.vimrc
 "set color scheme
 syntax on
 colorscheme codedark
+"additional color settings to preserve theme colors in tmux
+set background=dark
+set t_Co=256
 
 "Configure statusline how I want it to look
 "First remove showmode because the statusline will do that
