@@ -1,7 +1,22 @@
-"Set compatibility to Vim only.
+" Set compatibility to Vim only.
 set nocompatible
 
-"Show line numbers
+" Set keymappings
+imap jk <ESC>
+imap kj <ESC>
+" Set timeout duration to allow for naturally typed jk
+" Vim default is 1000
+set timeoutlen=200
+" move by graphical lines whe text is wrapped
+noremap <silent> j gj
+noremap <silent> k gk
+" remap the leader key from \ to the spacebar
+let mapleader = " "
+
+" Set system clipboard as default
+set clipboard=unnamedplus
+
+" Show line numbers
 set number
 set relativenumber
 
@@ -16,10 +31,10 @@ set splitbelow
 set splitright
 
 "split navigation key mappings
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "Enable folding
 set foldmethod=indent
