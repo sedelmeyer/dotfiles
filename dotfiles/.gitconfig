@@ -14,4 +14,5 @@
 	mno = merge --no-ff
 	gr = log --graph --decorate --pretty=oneline --abbrev-commit
 
-
+[url "https://github.com/"]
+	insteadOf = gh:
