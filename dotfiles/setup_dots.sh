@@ -2,6 +2,9 @@
 
 # Current script requires that we be in the dotfiles working
 # directory when run by bash. This needs to be fixed.
+
+# SOURCE: This script is adapted from
+# https://github.com/tomnomnom/dotfiles/blob/master/setup.sh
 dotfilesDir=$(pwd)
 
 function linkDotfile {
