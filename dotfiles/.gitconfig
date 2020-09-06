@@ -1,0 +1,18 @@
+[user]
+	name = sedelmeyer
+	email = 20605812+sedelmeyer@users.noreply.github.com
+
+[alias]
+	s = status
+	a = add
+	cm = commit -m
+	co = checkout
+	br = branch
+	d = diff
+	po = push origin
+	lo = log --oneline -n
+	mno = merge --no-ff
+	gr = log --graph --decorate --pretty=oneline --abbrev-commit
+
+[url "https://github.com/"]
+	insteadOf = gh:

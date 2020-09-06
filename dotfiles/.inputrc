@@ -1,0 +1,4 @@
+# Set vi keybindings for bash and all other GNU readline apps
+
+set editing-mode vi
+
