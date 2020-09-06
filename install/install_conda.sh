@@ -17,4 +17,8 @@ source ~/.bashrc
 
 conda update -y conda
 
+# removed conda install script
 rm $conda_install_script
+
+# install python 3.7 environment for specific projects
+conda create --name py37 python=3.7 pip
