@@ -17,6 +17,8 @@ packages=(
   ufw
   curl
   wget
+  xsel
+  tmux
   ## MEDIA
   cmus
   rhythmbox
