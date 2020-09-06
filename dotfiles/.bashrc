@@ -8,6 +8,13 @@ bind '"jk":"\e"'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# aliases
+alias o=xdg-open
+alias g=git
+alias ..='cd ..'
+alias ...='cd ..; cd ..'
+alias ....='cd ..;cd ..;cd ..'
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
