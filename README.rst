@@ -18,7 +18,7 @@ Getting started
 ---------------
 
 About this repository
-"""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^
 
 These are my personal dotfiles and linux configuration scripts. 
 
@@ -35,19 +35,47 @@ This repository is structured as such:
    └── scripts/    >>  Scripts used to automate setup
 
 Prerequisites
-"""""""""""""
+^^^^^^^^^^^^^
 
 The scripts and settings specified in this repository are written specifically for use on Ubuntu 18.04. Feel free to fork, copy, or use them yourself. Just be warned, your mileage may vary depending on your specific linux distribution.
 
-Installation
-""""""""""""
+Ubuntu Installation
+^^^^^^^^^^^^^^^^^^^
 
 When installing Ubuntu 18.04, here are some reasonable options to select during the installation process:
 
-1. XX
-1. XX
+#. Insert bootable USB with Ubuntu 18.04
+#. Restart and press ``F12`` when on startup screen
+#. Select language and keyboard layout
+#. Connect to WiFi
+#. Select "Minimal" installation to prevent default packages from being installed (in favor of selecting our own defaults during configuration)
+#. Download updates while installing
+#. Select option to install 3rd party software
+#. Configure Secure Boot
+#. Select "erase disk and install Ubuntu"
+#. Encrypt the new Ubuntu installation (must also use LVM by default)
+#. Install and restart (monitor restart so that you can enroll MOK)
+#. After restart and sign-in, Software Updater will likely appear -- Install new updates
 
-Additional Resources
---------------------
+Solving hardware specific issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+There are any number of issues that might need fixing, dependent on your specific hardware.
 
+Fix grub suspend loop issue
+"""""""""""""""""""""""""""
+
+This may be the issue if, after waking your laptop from suspend mode, it continuously returns you to the lock screen after several seconds of use::
+
+   sudo vi /etc/default/grub
+
+Edit the following line as such::
+
+   GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"
+
+Save and close the file, then run::
+
+   sudo update-grub
+   shutdown -r now
+
+Stick around while it reboots to make certain no additional MOK management is needed.
