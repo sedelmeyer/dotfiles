@@ -1,9 +1,9 @@
 My personal dotfiles and configuration scripts
 ==============================================
 
-This repository contains my personal dotfiles and linux configuration scripts.
+This repository contains my personal dotfiles and Linux configuration scripts.
 
-These were created so I can more easily migrate my development environment among linux machines and more easily wipe and reinstall my desktop OS on a more frequent basis.
+These were created so I can more easily migrate my development environment among Linux machines and easily wipe and reinstall my desktop operating system on a more frequent basis.
 
 .. contents:: Contents
   :local:
@@ -20,7 +20,7 @@ This repository is structured as such:
 
    dotfiles/
    ├── deprecated/ <-  No longer used v0.1.0 MacOS install files
-   ├── docs/       <-  Documentation detailing configuration  
+   ├── docs/       <-  Configuration details and notes (future release)  
    ├── dotfiles/   <-  System dotfiles
    ├── Makefile    <-  Make commands providing a simplified CLI
    ├── README.rst  <-  You're reading it, right now!
@@ -29,12 +29,12 @@ This repository is structured as such:
 0. Prerequisites
 ----------------
 
-The scripts and settings specified in this repository are written specifically for use on Ubuntu 18.04. Feel free to fork, copy, or use them yourself. Just be warned, your mileage may vary depending on your specific linux distribution.
+The scripts and settings specified in this repository are written specifically for use on Ubuntu 18.04. Feel free to fork, copy, or use them yourself. Just be warned, your mileage may vary depending on your specific linux distribution and your specified configuration preferences.
 
 1. Ubuntu Installation
 ----------------------
 
-When installing Ubuntu 18.04, here are some reasonable options to select during the installation process:
+When installing Ubuntu 18.04, here are the general steps along with some reasonable options to select during the installation process:
 
 #. Insert bootable USB with Ubuntu 18.04
 #. Restart and press ``F12`` when on startup screen
@@ -75,19 +75,19 @@ Stick around while it reboots to make certain no additional MOK management is ne
 2. Configure new installation using this repository
 ---------------------------------------------------
 
-In order to use the configuration scripts in this repository, either download the entire repository to the newly install Ubuntu machine or clone it like so with HTTPS::
+In order to use the configuration scripts in this repository, either download the entire repository to the newly install Ubuntu machine or ``git clone`` it like so with HTTPS::
 
    sudo apt install git
    git clone https://github.com/sedelmeyer/dotfiles.git
 
-After cloning the repository ``cd`` into it (i.e. ``cd dotfiles/``) and use the ``make`` commands to run the appropriate bash installation scripts. If for some reason your Linux installation did not include ``make``, you can run ``sudo apt install make`` prior to running the install scripts.
+After cloning the repository ``cd`` into it (i.e. ``cd dotfiles/``) and use the ``make`` commands to run the appropriate bash installation scripts. If for some reason your Linux installation does not include the ``make`` application, you can run ``sudo apt install make`` prior to running the install scripts.
 
-Please note, a future version of this repository will include a better ``make`` workflow for configuring a newly installed system. But, until then, a new system can best be configured by running each make command in the following order.
+**Please note**: A future version of this repository will include a better ``make`` workflow for configuring a newly installed system. But, until then, a new system can best be configured by running each ``make`` command outlined below in the following order:
 
 2.1. Install all required packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following scripts install all desired packages. The scripts are separated based on the installation sources for each set of packages.
+The following ``make`` commands install all desired packages. The scripts associated with each ``make`` command are separated based on the installation sources for each set of packages.
 
 ``make apt``
    This command runs the ``install_apt.sh`` script in order to install packages available in Ubuntu's package directory. Prior to running this command, please review the packages specified in the ``install_apt.sh`` script and modify that list to include only the packages you wish to have installed.
@@ -103,7 +103,7 @@ The following scripts install all desired packages. The scripts are separated ba
 
 
 ``make vscode``
-   This command runs the ``install_vscode.sh`` script and installs the VSCode IDE and desired extensions.
+   This command runs the ``install_vscode.sh`` script and installs the Visual Studio Code IDE and all desired extensions.
 
 2.2. Configure system settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -121,6 +121,12 @@ Please inspect the dotfiles contained in this repository's ``dotfiles/`` subdire
 ``make dots``
    This command runs the ``install_dots.sh`` script and generates matching symlinks in your HOME (i.e. ``~/``) directory for each specified dotfile. If your HOME directory already contains one of these dotfiles, your existing dotfile will be dated and renamed rather than overwriting it. In its place, a new symlink will be generated.
 
+2.3.1. Install Vim plugins
+""""""""""""""""""""""""""
+
+After running ``make dots``, you will want to make certain that all Vim plug-ins specified in ``.vimrc`` get installed. To accomplish this, open ``vim`` and run the follow command from within Vim::
+
+   :PlugInstall
 
 2.4. Configure TensorFlow NVIDIA GPU support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,3 +140,6 @@ After running ``make cuda1`` and restarting your system, you should now run ``nv
 
 ``make cuda2``
     This command runs the ``install_cuda2.sh`` script and installs the development and runtime libraries (~4GB) and TensorRT.
+
+2.4.1 Switch between NVIDIA and Intel graphics
+""""""""""""""""""""""""""""""""""""""""""""""
