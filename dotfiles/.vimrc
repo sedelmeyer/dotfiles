@@ -16,6 +16,10 @@ let mapleader = " "
 " Set system clipboard as default
 set clipboard=unnamedplus
 
+" enable smart wrap for wrapped lines
+set breakindent
+set linebreak
+
 " Show line numbers
 set number
 set relativenumber
@@ -65,6 +69,14 @@ autocmd BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+
+" reST specific settings
+autocmd BufNewFile,BufRead *.rst
+    \ set tabstop=3 |
+    \ set softtabstop=3 |
+    \ set shiftwidth=3 |
+    \ set expandtab |
+    \ set autoindent |
 
 " make backspaces more powerfull
 set backspace=indent,eol,start
