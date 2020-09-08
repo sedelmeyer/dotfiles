@@ -12,7 +12,7 @@ apt : ## Install apt packages [See: scripts/install_apt.sh to modify packages]
 settings : ## Configure system settings [See: scripts/install_settings.sh]
 	bash scripts/install_settings.sh
 
-conda : ## Install Miniconda Pyhton and conda distribution [See: scripts/install_conda.sh]
+conda : ## Install Miniconda Python and conda distribution [See: scripts/install_conda.sh]
 	bash scripts/install_conda.sh
 
 vscode : ## Install VS Code and extensions [See: scripts/install_vscode.sh]
