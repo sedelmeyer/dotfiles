@@ -5,7 +5,7 @@
 
 # SOURCE: This script is adapted from
 # https://github.com/tomnomnom/dotfiles/blob/master/setup.sh
-dotfilesDir=$(pwd)
+dotfilesDir="$(pwd)/dotfiles"
 
 function linkDotfile {
   dest="${HOME}/${1}"

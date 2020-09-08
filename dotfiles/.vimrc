@@ -16,32 +16,52 @@ let mapleader = " "
 " Set system clipboard as default
 set clipboard=unnamedplus
 
+" enable smart wrap for wrapped lines
+set breakindent
+set linebreak
+
 " Show line numbers
 set number
 set relativenumber
 
-"Encoding
+" Encoding
 set encoding=utf-8
 
-"Highlight matching pairs of brackets. Use the '%' character to jump between them.
+" Highlight matching pairs of brackets. Use the '%' character to jump between them.
 set matchpairs+=<:>
 
-"Set window split preferences
+" Set window split preferences
 set splitbelow
 set splitright
 
-"split navigation key mappings
+" split navigation key mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"Enable folding
+" Enable folding
 set foldmethod=indent
 set foldlevel=99
 
-"Python specific settings
-au BufNewFile,BufRead *.py
+filetype on
+
+" default tab behavior
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set shiftround
+set expandtab
+
+" makefile tab behavior
+autocmd FileType make
+    \ set noexpandtab |
+    \ set shiftwidth=8 |
+    \ set tabstop=8 |
+    \ set softtabstop=0
+
+" Python specific settings
+autocmd BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -49,6 +69,14 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+
+" reST specific settings
+autocmd BufNewFile,BufRead *.rst
+    \ set tabstop=3 |
+    \ set softtabstop=3 |
+    \ set shiftwidth=3 |
+    \ set expandtab |
+    \ set autoindent |
 
 " make backspaces more powerfull
 set backspace=indent,eol,start
@@ -221,3 +249,16 @@ let g:ale_fixers = {
       \}
 " nmap <F10> :ALEFix<CR>
 let g:ale_fix_on_save = 1
+
+" automate paste mode to prevent autoindent when pasting from sys clipboard
+" https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
+endfunction
