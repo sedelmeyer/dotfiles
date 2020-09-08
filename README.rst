@@ -30,7 +30,7 @@ This repository is structured as such::
 0. Prerequisites
 ----------------
 
-The scripts and settings specified in this repository are written specifically for use on Ubuntu 18.04. Feel free to fork, copy, or use them yourself. Just be warned, your mileage may vary depending on your specific linux distribution and your specified configuration preferences.
+The scripts and settings specified in this repository are written specifically for use on Ubuntu 18.04. Feel free to fork, copy, or use them yourself. Just be warned, your mileage may vary depending on your specific Linux distribution and your specified configuration preferences.
 
 1. Ubuntu Installation
 ----------------------
@@ -163,6 +163,7 @@ To turn NVIDIA back on::
 Useful resources
 ----------------
 
-* The official Ubuntu package repository search: https://packages.ubuntu.com/
+* The Ubuntu package repository search: https://packages.ubuntu.com/
 * The TensorFlow GPU support documentation: https://www.tensorflow.org/install/gpu
 * The ``vim-plug`` plugin manager documentation: https://github.com/junegunn/vim-plug/wiki
+* Docker installation instructions for Linux: https://docs.docker.com/engine/install/ubuntu/
