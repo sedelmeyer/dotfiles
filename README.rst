@@ -143,3 +143,19 @@ After running ``make cuda1`` and restarting your system, you should now run ``nv
 
 2.4.1 Switch between NVIDIA and Intel graphics
 """"""""""""""""""""""""""""""""""""""""""""""
+
+Once the ``cuda1`` and ``cuda2`` scripts have been run, feel free to turn off the NVIDIA graphic card when it is not in use for more efficient battery use. This can be accomplished by using the ``prime-select`` command as follows...
+
+To see whether NVIDIA or Intel graphics are in use::
+   
+   prime-select query
+
+To turn off NVIDIA in favor of Intel (more efficient power use)::
+   
+   prime-select intel
+
+To turn NVIDIA back on::
+
+   prime-select nvidia
+
+**Note:** You will need to restart your system in order for any graphics card changes to take effect.
