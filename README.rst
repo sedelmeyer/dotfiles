@@ -14,9 +14,7 @@ About this repository
 
 These are my personal dotfiles and linux configuration scripts. 
 
-This repository is structured as such:
-
-.. code-block:: bash
+This repository is structured as such::
 
    dotfiles/
    ├── deprecated/ <-  No longer used v0.1.0 MacOS install files
