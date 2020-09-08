@@ -5,9 +5,12 @@ This repository contains my personal dotfiles and Linux configuration scripts.
 
 These were created so I can more easily migrate my development environment among Linux machines and easily wipe and reinstall my desktop operating system on a more frequent basis.
 
+.. image:: https://github.com/sedelmeyer/dotfiles/workflows/build/badge.svg?branch=master
+   :target: https://github.com/sedelmeyer/dotfiles/actions
+
 .. contents:: Contents
-  :local:
-  :backlinks: top
+   :local:
+   :backlinks: top
 
 About this repository
 ---------------------
