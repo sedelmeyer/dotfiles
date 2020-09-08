@@ -15,7 +15,7 @@ jobs:
 
         strategy:
             matrix:
-                os: [ "ubuntu-18.04", "ubuntu-20.04" ]
+                os: [ "ubuntu-18.04" ]
 
         runs-on: ${{ matrix.os }}
 
@@ -23,3 +23,14 @@ jobs:
         - uses: actions/checkout@v1
         - name: Install apt packages
           run: make apt
+        - name: Generate dotfile symlinks
+          run: make dots
+        - name: Install Miniconda
+          run: make conda
+        - name: Install Docker-CE
+          run: make docker
+        - name: Install pip --user packages
+          run: make pip
+        - name: Install Visual Studio Code
+          run: make vscode
+
