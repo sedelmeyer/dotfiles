@@ -11,6 +11,7 @@ packages=(
   ## BASICS
   git
   vim
+  make
   tree
   file
   htop
@@ -19,6 +20,8 @@ packages=(
   wget
   xsel
   tmux
+  rsync
+  duplicity
   ## MEDIA
   cmus
   rhythmbox
@@ -68,7 +71,6 @@ packages=(
   # w3m
   # w3m-img
   vifm
-  # ranger
 )
 
 for pkg in "${packages[@]}"
