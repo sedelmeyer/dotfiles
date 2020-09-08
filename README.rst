@@ -38,16 +38,16 @@ When installing Ubuntu 18.04, here are the general steps along with some reasona
 #. Restart and press ``F12`` when on startup screen
 #. Select language and keyboard layout
 #. Connect to WiFi
-#. Select "Minimal" installation to prevent default packages from being installed (in favor of selecting our own defaults during configuration)
-#. Download updates while installing
-#. Select option to install 3rd party software
+#. Select "Minimal" installation to prevent default packages from being installed (in favor of selecting our own defaults during later configuration)
+#. Choose to download updates while installing
+#. Select the option to install 3rd party software
 #. Configure Secure Boot
 #. Select "erase disk and install Ubuntu"
-#. Encrypt the new Ubuntu installation (must also use LVM by default)
-#. Install and restart (monitor restart so that you can enroll MOK)
-#. After restart and sign-in, Software Updater will likely appear -- Install new updates
+#. Encrypt the new Ubuntu installation (the installer will requires you to also use LVM)
+#. Install and restart (monitor your machine while it restarts so that you can enroll MOK when the option appears)
+#. After restart and sign-in, the Software Updater will likely appear asking if you'd like to install new updates. Do it!
 
-1.1. Solving hardware specific issues
+1.1. Solving hardware-specific issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are any number of issues that might need fixing, dependent on your specific hardware. Below are some I've encountered.
@@ -99,7 +99,6 @@ The following ``make`` commands install all desired packages. The scripts associ
 ``make pip``
    This command runs the ``install_pip.sh`` script and ``--user`` installs desired Python packages such as ``pipenv``, ``cookiecutter``, and ``docker-compose``.
 
-
 ``make vscode``
    This command runs the ``install_vscode.sh`` script and installs the Visual Studio Code IDE and all desired extensions.
 
@@ -122,7 +121,7 @@ Please inspect the dotfiles contained in this repository's ``dotfiles/`` subdire
 2.3.1. Install Vim plugins
 """"""""""""""""""""""""""
 
-After running ``make dots``, you will want to make certain that all Vim plug-ins specified in ``.vimrc`` get installed. To accomplish this, open ``vim`` and run the follow command from within Vim::
+After running ``make dots``, you will want to make certain that all Vim plugins specified in ``.vimrc`` get installed. To accomplish this, open ``vim`` and run the follow command from within Vim::
 
    :PlugInstall
 
@@ -157,3 +156,10 @@ To turn NVIDIA back on::
    prime-select nvidia
 
 **Note:** You will need to restart your system in order for any graphics card changes to take effect.
+
+Useful resources
+----------------
+
+* The official Ubuntu package repository search: https://packages.ubuntu.com/
+* The TensorFlow GPU support documentation: https://www.tensorflow.org/install/gpu
+* The ``vim-plug`` plugin manager documentation: https://github.com/junegunn/vim-plug/wiki
