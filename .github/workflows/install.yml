@@ -25,8 +25,6 @@ jobs:
           run: make apt
         - name: Generate dotfile symlinks
           run: make dots
-        - name: Install Miniconda
-          run: make conda
         - name: Install Docker-CE
           run: make docker
         - name: Install pip --user packages
