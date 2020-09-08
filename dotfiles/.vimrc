@@ -78,10 +78,10 @@ autocmd BufNewFile,BufRead *.rst
     \ set expandtab |
     \ set autoindent |
 
-" make backspaces more powerfull
+" make backspaces more powerful
 set backspace=indent,eol,start
 
-"Flagging Unnecessary Whitespace
+" Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
@@ -91,21 +91,21 @@ set wildmenu
 " Set the working directory to wherever the open file lives
 set autochdir
 
-"Autoload vim-plug plugin manager if it isn't already installed
+" Autoload vim-plug plugin manager if it isn't already installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"Install plugins using vimplug
+" Install plugins using vimplug
 
-"Specify a directory for plugins
-"- For Neovim: stdpath('data') . '/plugged'
-"- Avoid using standard Vim directory names like 'plugin'
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-"Make sure you use single quotes
+" Make sure you use single quotes
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -116,36 +116,36 @@ Plug 'junegunn/limelight.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'christoomey/vim-tmux-navigator'
 
-"Initialize plugin system
+" Initialize plugin system
 call plug#end()
 
-"Gitgutter settings
+" Gitgutter settings
 let g:gitgutter_set_sign_backgrounds = 1
-"increase frequency of vim update time to 100ms to capture changes sooner
+" increase frequency of vim update time to 100ms to capture changes sooner
 set updatetime=100
 
-"Limelight is activated only during Goyo session
+" Limelight is activated only during Goyo session
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-"Make non-focused text in goyo session light gray color
+" Make non-focused text in goyo session light gray color
 let g:limelight_conceal_ctermfg = 240
 
-"Reload .vimrc to restore preferred defaults when exiting Goyo
+" Reload .vimrc to restore preferred defaults when exiting Goyo
 autocmd! User GoyoLeave source ~/.vimrc
 
-"set color scheme
+" set color scheme
 syntax on
 colorscheme codedark
-"additional color settings to preserve theme colors in tmux
+" additional color settings to preserve theme colors in tmux
 set background=dark
 set t_Co=256
 
-"Configure statusline how I want it to look
-"First remove showmode because the statusline will do that
+" Configure statusline how I want it to look
+" First remove showmode because the statusline will do that
 set noshowmode
 
-"Now configure statusline
+" Now configure statusline
 set laststatus=2
 set statusline=
 set statusline+=%2*
@@ -223,7 +223,7 @@ augroup GetGitBranch
   autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
 augroup END
 
-"Add ALE linter errors to status line
+" Add ALE linter errors to status line
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
     
