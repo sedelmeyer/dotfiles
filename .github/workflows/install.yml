@@ -1,0 +1,25 @@
+# This workflow will run the project's scripts to ensure successful install
+
+name: build
+
+on:
+    push:
+        branches:
+            - master
+            - develop
+    pull_request:
+        branches: [ master ]
+
+jobs:
+    build:
+
+        strategy:
+            matrix:
+                os: [ "ubuntu-18.04", "ubuntu-20.04" ]
+
+        runs-on: ${{ matrix.os }}
+
+        steps:
+        - uses: actions/checkout@v1
+        - name: Install apt packages
+          run: make apt
