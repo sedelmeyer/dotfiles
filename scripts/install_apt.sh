@@ -21,7 +21,7 @@ packages=(
   xsel
   tmux
   rsync
-  duplicity
+  borgbackup
   ## MEDIA
   cmus
   rhythmbox
@@ -63,6 +63,7 @@ packages=(
   # mutt
   # notmuch-mutt
   # adb
+  # duplicity
   exfat-fuse
   exfat-utils
   # calcurse
