@@ -1,6 +1,7 @@
 " Set compatibility to Vim only.
 set nocompatible
 
+:set mouse=a
 " Set keymappings
 imap jk <ESC>
 imap kj <ESC>
@@ -30,6 +31,15 @@ set encoding=utf-8
 " Highlight matching pairs of brackets. Use the '%' character to jump between them.
 set matchpairs+=<:>
 
+" Auto-close brackets while in insert mode
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 " Set window split preferences
 set splitbelow
 set splitright
@@ -45,6 +55,8 @@ set foldmethod=indent
 set foldlevel=99
 
 filetype on
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " default tab behavior
 set shiftwidth=4
@@ -115,9 +127,20 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'ervandew/supertab'
 
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 " Initialize plugin system
 call plug#end()
+
+" activate deoplete code completion at startup
+" let g:deoplete#enable_at_startup = 1
 
 " Gitgutter settings
 let g:gitgutter_set_sign_backgrounds = 1
