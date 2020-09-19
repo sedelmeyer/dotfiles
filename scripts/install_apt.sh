@@ -22,6 +22,8 @@ packages=(
   tmux
   rsync
   borgbackup
+  i3
+  xbacklight
   ## MEDIA
   cmus
   rhythmbox
