@@ -39,7 +39,7 @@ wget http://archive.ubuntu.com/ubuntu/pool/universe/libw/libwebservice-musicbrai
 
 tar -xvzf ${wget_dir}/libwebservice-musicbrainz-perl_1.0.4.orig.tar.gz -C ${wget_dir}/
 
-(cd ${wget_dir}/${ws_pkg_dir} && perl Makefile.PL && make && make test && make install)
+(cd ${wget_dir}/${ws_pkg_dir} && perl Makefile.PL && make && make test && sudo make install)
 
 
 # download latest abcde package from project website
@@ -48,4 +48,4 @@ wget https://abcde.einval.com/download/abcde-2.9.3.tar.gz -P ${wget_dir}/
 
 tar -xvzf ${wget_dir}/${abcde_pkg_dir}.tar.gz -C ${wget_dir}/
 
-(cd ${wget_dir}/${abcde_pkg_dir} && make install)
+(cd ${wget_dir}/${abcde_pkg_dir} && sudo make install)
