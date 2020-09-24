@@ -1,2 +1,8 @@
+# Ignore editor temp files
 *.deb
 *.swp
+
+# Ignore items in downloads dir except for README
+downloads/**
+!downloads/README
+
