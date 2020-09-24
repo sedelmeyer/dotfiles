@@ -4,7 +4,7 @@
 # Sources:
 # https://code.visualstudio.com/docs/setup/linux
 # https://code.visualstudio.com/docs/editor/extension-gallery#_command-line-extension-management
-wget_dir=../downloads/
+wget_dir=downloads/
 
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > ${wget_dir}packages.microsoft.gpg
 sudo install -o root -g root -m 644 ${wget_dir}packages.microsoft.gpg /etc/apt/trusted.gpg.d/

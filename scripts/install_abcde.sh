@@ -4,7 +4,7 @@
 # bionic apt pkg is out of date and musicbrainz api
 # interface is broken
 
-wget_dir=../downloads/
+wget_dir=downloads/
 ws_pkg_dir=WebService-MusicBrainz-1.0.4
 abcde_pkg_dir=abcde-2.9.3
 
