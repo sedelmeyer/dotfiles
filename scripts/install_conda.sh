@@ -5,10 +5,10 @@
 # var
 # https://conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
-wget_dir=../downloads/
+wget_dir=downloads
 conda_install_script=Miniconda3-latest-Linux-x86_64.sh
 
-wget https://repo.anaconda.com/miniconda/$conda_install_script -P ${wget_dir}
+wget https://repo.anaconda.com/miniconda/$conda_install_script -P ${wget_dir}/
 (cd ${wget_dir} && bash $conda_install_script)
 
 # echo 'export PATH="~/anaconda/bin:$PATH"' >> ~/.bashrc
