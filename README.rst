@@ -105,6 +105,9 @@ The following ``make`` commands install all desired packages. The scripts associ
 ``make vscode``
    This command runs the ``install_vscode.sh`` script and installs the Visual Studio Code IDE and all desired extensions.
 
+``make abcde``
+   This command runs the ``install_abcde.sh`` script and installs the ABCDE (A Better CD Encoder) package for ripping music CDs. While this package is available in the Ubuntu package repository, the version installed on Bionic (i.e. Ubuntu 18.04) is outdated and incompatible with the current MusicBrainz web API. Therefore, this script manually installs the latest version of ``abcde`` along with its dependencies. For more info on this package, please see:https://abcde.einval.com/wiki/
+
 2.2. Configure system settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
