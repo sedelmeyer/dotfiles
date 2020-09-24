@@ -31,4 +31,5 @@ jobs:
           run: make pip
         - name: Install Visual Studio Code
           run: make vscode
-
+        - name: Install abcde package
+          run: make abcde

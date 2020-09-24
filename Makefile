@@ -30,3 +30,5 @@ cuda1 : ## Configure TensorFlow GPU support (1 of 2) [See: scripts/install_cuda1
 cuda2 : ## Configure TensorFlow GPU support (2 of 2) [See: scripts/install_cuda2.sh]
 	bash scripts/install_cuda1.sh
 
+abdce : ## Install abcde package and dependencies [See: scripts/install_abcde.sh]
+	bash scripts/install_abcde.sh
