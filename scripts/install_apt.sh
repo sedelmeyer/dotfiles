@@ -26,6 +26,7 @@ packages=(
   xbacklight
   ## MEDIA
   cmus
+  eject
   rhythmbox
   gstreamer1.0-plugins-bad
   # smplayer
