@@ -24,6 +24,7 @@ packages=(
   borgbackup
   i3
   xbacklight
+  redshift
   ## MEDIA
   cmus
   eject
