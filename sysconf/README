@@ -1,0 +1,6 @@
+SYSCONF
+=======
+
+This directory contains misc. system config files.
+
+TODO: Scripting will eventually be added to this repository to automate installation of the config files.

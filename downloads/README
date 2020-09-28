@@ -1,0 +1,6 @@
+DOWNLOADS
+=========
+
+This directory is used to store downloads invoked during various install scripts.
+
+TODO: The `make clean` command (soon to be) available in the dotfiles parent directory will remove prior downloads from this directory.

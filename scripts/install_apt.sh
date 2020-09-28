@@ -22,8 +22,12 @@ packages=(
   tmux
   rsync
   borgbackup
+  i3
+  xbacklight
+  redshift
   ## MEDIA
   cmus
+  eject
   rhythmbox
   gstreamer1.0-plugins-bad
   # smplayer

@@ -37,8 +37,4 @@ linkDotfile .gitconfig
 linkDotfile .tmux.conf
 linkDotfile .inputrc
 linkDotfile .cookiecutterrc
-
-
-
-
-
+linkDotfile .i3
