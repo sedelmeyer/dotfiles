@@ -25,15 +25,18 @@ packages=(
   i3
   xbacklight
   redshift
+  vifm
   ## MEDIA
   cmus
   eject
-  rhythmbox
-  gstreamer1.0-plugins-bad
-  # smplayer
   mpv
+  # ABCDE installed using install_abcde.sh
+  # for that reason, rhythmbox is not used
+  # rhythmbox
+  # gstreamer1.0-plugins-bad
+  # smplayer
   # ABCDE CD ENCODER PKGS
-  # Only 20.04 version works
+  # Only 20.04 version works, see install_abcde.sh
   # eyed3
   # lame
   # flac
@@ -75,7 +78,6 @@ packages=(
   # lynx
   # w3m
   # w3m-img
-  vifm
 )
 
 for pkg in "${packages[@]}"
