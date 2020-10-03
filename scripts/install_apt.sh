@@ -91,6 +91,11 @@ done
 sudo ufw enable
 # will still require policies to modify behavior
 
+# install borgbackup from ppa for more recent version
+sudo add-apt-repository ppa:costamagnagianfranco/borgbackup
+sudo apt-get update
+sudo apt install -y borgbackup
+
 # DVD Support
 sudo apt install -y libdvd-pkg
 sudo dpkg-reconfigure libdvd-pkg
