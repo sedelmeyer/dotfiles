@@ -175,8 +175,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
 
 # Enable touchpad tapping
 exec_always xinput set-prop "Synaptics TM2438-005" "libinput Tapping Enabled" 1
@@ -185,8 +185,10 @@ exec_always xinput set-prop "Synaptics TM2438-005" "libinput Tapping Enabled" 1
 exec_always setxkbmap -option caps:ctrl_modifier
 
 # keyboard interaction with the i3 exit menu
-mode "exit: [k]lock, [l]ogout, [r]eboot, [s]hutdown" {
-        bindsym k exec i3lock -c 00a49e
+bindsym $mod+x mode "$mode_exit"
+set $mode_exit exit: [k]lock, [l]ogout, [r]eboot, [s]hutdown
+mode "$mode_exit" {
+        bindsym k exec i3lock -c 006666; mode "default"
         bindsym l exec i3-msg exit
         bindsym r exec shutdown -r now
         bindsym s exec shutdown now
@@ -194,10 +196,34 @@ mode "exit: [k]lock, [l]ogout, [r]eboot, [s]hutdown" {
         bindsym Return mode "default"
 }
 
-bindsym $mod+x mode "exit: [k]lock, [l]ogout, [r]eboot, [s]hutdown"
 
 # prevent mouse hover from activating pane
 focus_follows_mouse no
+
+# redshift (i.e. night) modes
+bindsym $mod+n mode "$mode_night"
+set $mode_night Set colour temperature: (r)eset, (2)500K, (3)000K, (4)000K, (5)000K
+mode "$mode_night" {
+        bindsym r exec --no-startup-id redshift -x
+        bindsym 2 exec --no-startup-id redshift -O 2500
+        bindsym 3 exec --no-startup-id redshift -O 3000
+        bindsym 4 exec --no-startup-id redshift -O 4000
+        bindsym 5 exec --no-startup-id redshift -O 5000
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# screenshot bindings using scrot and xclip
+# saves to ~/Pictures/screenshots/ and also adds to clipboard for easy pasting via xclip
+# Source:
+# https://www.reddit.com/r/i3wm/comments/65vis5/screenshot_commands_from_my_i3_config/
+
+# Multi-screen screenshots with scrot
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+
+# Area selection screenshot, select area with cursor bounding box after binding
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
+
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a

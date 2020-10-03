@@ -19,26 +19,32 @@ packages=(
   curl
   wget
   xsel
+  xclip
   tmux
   rsync
   borgbackup
   i3
   xbacklight
+  redshift
+  vifm
   ## MEDIA
   cmus
   eject
-  rhythmbox
-  gstreamer1.0-plugins-bad
-  # smplayer
   mpv
+  # ABCDE installed using install_abcde.sh
+  # for that reason, rhythmbox is not used
+  # rhythmbox
+  # gstreamer1.0-plugins-bad
+  # smplayer
   # ABCDE CD ENCODER PKGS
-  # Only 20.04 version works
+  # Only 20.04 version works, see install_abcde.sh
   # eyed3
   # lame
   # flac
   # abcde
   # IMAGES
   gimp
+  scrot
   inkscape
   imagemagick
   fim
@@ -74,7 +80,6 @@ packages=(
   # lynx
   # w3m
   # w3m-img
-  vifm
 )
 
 for pkg in "${packages[@]}"
@@ -85,6 +90,11 @@ done
 # enable firewall
 sudo ufw enable
 # will still require policies to modify behavior
+
+# install borgbackup from ppa for more recent version
+sudo add-apt-repository ppa:costamagnagianfranco/borgbackup
+sudo apt-get update
+sudo apt install -y borgbackup
 
 # DVD Support
 sudo apt install -y libdvd-pkg
