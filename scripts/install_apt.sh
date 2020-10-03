@@ -19,6 +19,7 @@ packages=(
   curl
   wget
   xsel
+  xclip
   tmux
   rsync
   borgbackup
@@ -43,6 +44,7 @@ packages=(
   # abcde
   # IMAGES
   gimp
+  scrot
   inkscape
   imagemagick
   fim
