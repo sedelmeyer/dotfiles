@@ -34,3 +34,6 @@ conda update -y conda
 
 # install python 3.7 environment for specific projects
 conda create --name py37 python=3.7 pip
+
+printf "\nRun this command to finish your conda setup:"
+printf "\n\n    source ~/.bashrc\n\n"
