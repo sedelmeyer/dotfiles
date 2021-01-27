@@ -1,5 +1,9 @@
 #!/bin/bash
 
+ufw_enable=true
+borg_ppa=true
+dvd_support=true
+
 # Update Ubuntu and get standard repository programs
 sudo apt update && sudo apt full-upgrade -y
 
@@ -24,7 +28,7 @@ packages=(
   rsync
   borgbackup
   i3
-  xbacklight
+  # xbacklight # only works with intel graphic 
   redshift
   vifm
   ## MEDIA
@@ -54,8 +58,8 @@ packages=(
   graphviz
   libreoffice
   ## OTHER TOOLS
-  python3-gpg
-  nautilus-dropbox
+  # python3-gpg
+  # nautilus-dropbox
   ## OTHERS TO CONSIDER
   gnome-sushi
   # add libreoffice sushi support
@@ -88,17 +92,26 @@ do
 done
 
 # enable firewall
-sudo ufw enable
 # will still require policies to modify behavior
+if [ "$ufw_enable" = true ]
+then
+    sudo ufw enable
+fi
 
 # install borgbackup from ppa for more recent version
-sudo add-apt-repository ppa:costamagnagianfranco/borgbackup
-sudo apt-get update
-sudo apt install -y borgbackup
+if [ "$borg_ppa" = true ]
+then
+    sudo add-apt-repository ppa:costamagnagianfranco/borgbackup
+    sudo apt-get update
+    sudo apt install -y borgbackup
+fi
 
 # DVD Support
-sudo apt install -y libdvd-pkg
-sudo dpkg-reconfigure libdvd-pkg
+if [ "$dvd_support" = true ]
+then
+    sudo apt install -y libdvd-pkg
+    sudo dpkg-reconfigure libdvd-pkg
+fi
 
 sudo apt upgrade -y
 sudo apt autoremove -y
