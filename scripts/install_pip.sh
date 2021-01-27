@@ -31,4 +31,5 @@ do
     "$pypkg" --version
 done
 
-
+printf "\nRun this command to finish your pip user installs:"
+printf "\n\n    source ~/.profile\n\n"
