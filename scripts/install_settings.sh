@@ -13,7 +13,7 @@ gsettings set org.gnome.desktop.screensaver color-shading-type 'solid'
 gsettings set org.gnome.desktop.screensaver primary-color '#000000'
 gsettings set org.gnome.desktop.screensaver secondary-color '#000000'
 gsettings set org.gnome.desktop.screensaver picture-uri 'none'
-gsettings set com.ubuntu.sound allow-amplified-volume true
+gsettings set com.ubuntu.sound allow-amplified-volume false
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 20.0
