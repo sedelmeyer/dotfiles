@@ -29,6 +29,7 @@ packages=(
   borgbackup
   i3
   # xbacklight # only works with intel graphic 
+  # light # altern to xbacklight, only avail 20.04
   redshift
   vifm
   ## MEDIA
