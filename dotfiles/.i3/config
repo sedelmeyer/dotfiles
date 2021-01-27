@@ -13,6 +13,9 @@
 # is used in the bar {} block below.
 font pango:monospace 9
 
+# Set a background color
+exec --no-startup-id xsetroot -solid "#000000"
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -170,8 +173,8 @@ bar {
 
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
@@ -179,7 +182,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
 
 # Enable touchpad tapping
-exec_always xinput set-prop "Synaptics TM2438-005" "libinput Tapping Enabled" 1
+exec_always xinput set-prop "bcm5974" "libinput Tapping Enabled" 1
+# exec_always xinput set-prop "Synaptics TM2438-005" "libinput Tapping Enabled" 1
 
 # Map ctrl to capslock key
 exec_always setxkbmap -option caps:ctrl_modifier
