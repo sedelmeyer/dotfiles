@@ -205,7 +205,7 @@ exec_always setxkbmap -option caps:ctrl_modifier
 bindsym $mod+x mode "$mode_exit"
 set $mode_exit exit: [k]lock, [l]ogout, [r]eboot, [s]hutdown
 mode "$mode_exit" {
-        bindsym k exec i3lock -c 006666; mode "default"
+        bindsym k exec i3lock -c 124950; mode "default"
         bindsym l exec i3-msg exit
         bindsym r exec shutdown -r now
         bindsym s exec shutdown now
