@@ -178,11 +178,24 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
+
+# If xbacklight does not work and light is installed
+bindsym XF86MonBrightnessUp exec light -A 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
+
+# If intel graphics and xbacklight works for hardware
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
+
+# Keyboard backlight brightness controls
+bindsym XF86KbdBrightnessUp exec light -s "sysfs/leds/smc::kbd_backlight" -A 5
+bindsym XF86KbdBrightnessDown exec light -s "sysfs/leds/smc::kbd_backlight" -U 5
 
 # Enable touchpad tapping
+# use `xinput list` command to find touchpad name
+# for MBP 2009 touchpad
 exec_always xinput set-prop "bcm5974" "libinput Tapping Enabled" 1
+# for Razer 2017 touchpad
 # exec_always xinput set-prop "Synaptics TM2438-005" "libinput Tapping Enabled" 1
 
 # Map ctrl to capslock key
@@ -222,11 +235,14 @@ mode "$mode_night" {
 # Source:
 # https://www.reddit.com/r/i3wm/comments/65vis5/screenshot_commands_from_my_i3_config/
 
+# currently configured for MBP 2009 F3 Fn key
+# change to "Print" if keyboard has PrintScreen key
+
 # Multi-screen screenshots with scrot
-bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+bindsym --release XF86LaunchA exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
 # Area selection screenshot, select area with cursor bounding box after binding
-bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
+bindsym --release Shift+XF86LaunchA exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
 
 #######################################################################
