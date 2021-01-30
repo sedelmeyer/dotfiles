@@ -34,3 +34,9 @@ cuda2 : ## Configure TensorFlow GPU support (2 of 2) [See: scripts/install_cuda2
 
 abcde : ## Install abcde package and dependencies [See: scripts/install_abcde.sh]
 	bash $(script_dir)/install_abcde.sh
+
+source: ## Install optional packages from git source [See: scripts/install_source.sh]
+	bash $(script_dir)/install_source.sh
+
+macpro: ## Execute fixes for MacBook Pro 5,5 install [See: scripts/install_macpro.sh]
+	bash $(script_dir)/install_macpro.sh
