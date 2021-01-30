@@ -53,6 +53,9 @@ packages=(
   inkscape
   imagemagick
   fim
+  ## DEV HEADERS REQUIRED FOR SUCKLESS TOOLS
+  libx11-dev
+  libxft-dev
   ## DOCUMENTS
   texlive
   pandoc
