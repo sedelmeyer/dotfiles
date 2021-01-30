@@ -108,6 +108,12 @@ The following ``make`` commands install all desired packages. The scripts associ
 ``make abcde``
    This command runs the ``install_abcde.sh`` script and installs the ABCDE (A Better CD Encoder) package for ripping music CDs. While this package is available in the Ubuntu package repository, the version available for Bionic (i.e. Ubuntu 18.04) is outdated and incompatible with the current MusicBrainz web API. Therefore, this script manually installs the latest version of ``abcde`` along with its dependencies. For more info on this package, please see: https://abcde.einval.com/wiki/
 
+``make source``
+   This command runs the ``install_source.sh`` script and installs, by default, the packages ``light`` from https://github.com/haikarainen/light and ``st`` from https://github.com/sedelmeyer/st. Source code for these packages are downloaded to ``~/Code/source/`` and the packages are then installed directly from that source.
+
+``make_macpro``
+   This command runs the ``install_macpro.sh`` script and executes system fixes required for a MacBook Pro 13" Mid 2009 (i.e. MacBookPro5,5) to function as desired while running Ubuntu 18.04. This includes setting the ``hid_apple.conf`` with ``fnmode=2`` so that F* keys require the use of the Fn key to use special keys (i.e. brightness, volume, etc.). It also includes an EFI fix to resolve the ``Failed to Set MokListRT`` warning at while the system boots.
+
 2.2. Configure system settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
