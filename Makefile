@@ -1,4 +1,4 @@
-.PHONY: help dots apt settings conda vscode docker pip cuda1 cuda2 abcde
+.PHONY: help dots apt settings conda vscode docker pip cuda1 cuda2 abcde source macpro
 
 script_dir = scripts
 
