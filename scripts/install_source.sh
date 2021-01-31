@@ -5,9 +5,9 @@ install_light=true
 install_st=true
 
 # set directory path for downloading source
-source_dir="Code/source"
+source_dir="~/Code/source"
 # make directory path if it does not already exist
-mkdir -p ~/${source_dir}
+mkdir -p ${source_dir}
 
 # install light package from github and install from latest dev
 # this package is an alternative to xbacklight and will work
