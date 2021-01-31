@@ -110,6 +110,9 @@ The following ``make`` commands install all desired packages. The scripts associ
 ``make abcde``
    This command runs the ``install_abcde.sh`` script and installs the ABCDE (A Better CD Encoder) package for ripping music CDs. While this package is available in the Ubuntu package repository, the version available for Bionic (i.e. Ubuntu 18.04) is outdated and incompatible with the current MusicBrainz web API. Therefore, this script manually installs the latest version of ``abcde`` along with its dependencies. For more info on this package, please see: https://abcde.einval.com/wiki/
 
+``make dropbox``
+   This command runs the ``install_dropbox.sh`` script and installs the official Dropbox daemon and command line application. For more information on Dropbox setup on Linux, please see https://www.dropbox.com/install?os=lnx and https://ostechnix.com/install-dropbox-in-ubuntu-18-04-lts-server/. You will want to have access to a web browser to complete Dropbox set-up on your machine. 
+
 ``make source``
    This command runs the ``install_source.sh`` script and installs, by default, the packages ``light`` from https://github.com/haikarainen/light and ``st`` from https://github.com/sedelmeyer/st. Source code for these packages are downloaded to ``~/Code/source/`` and the packages are then installed directly from that source.
 
