@@ -35,5 +35,3 @@ jobs:
           run: make abcde
         - name: Install Dropbox daemon and CLI
           run: make dropbox
-        - name: Install optional packages from source
-          run: make source
