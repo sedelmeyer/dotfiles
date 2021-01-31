@@ -1,4 +1,4 @@
-.PHONY: help dots apt settings conda vscode docker pip cuda1 cuda2 abcde dropbox source macpro
+.PHONY: help dots apt settings conda vscode docker pip cuda1 cuda2 abcde dropbox source macpro zoom
 
 script_dir = scripts
 
@@ -14,7 +14,7 @@ apt : ## Install apt packages [See: scripts/install_apt.sh to modify packages]
 settings : ## Configure system settings [See: scripts/install_settings.sh]
 	bash $(script_dir)/install_settings.sh
 
-conda : ## Install Miniconda Python and conda distribution [See: scripts/install_conda.sh]
+conda : ## Install Miniconda Python and conda [See: scripts/install_conda.sh]
 	bash $(script_dir)/install_conda.sh
 
 vscode : ## Install VS Code and extensions [See: scripts/install_vscode.sh]
@@ -43,3 +43,6 @@ source: ## Install optional packages from git source [See: scripts/install_sourc
 
 macpro: ## Execute fixes for MacBook Pro 5,5 install [See: scripts/install_macpro.sh]
 	bash $(script_dir)/install_macpro.sh
+
+zoom: ## Download and install latest version Zoom .deb [See: scripts/install_zoom.sh]
+	bash $(script_dir)/install_zoom.sh

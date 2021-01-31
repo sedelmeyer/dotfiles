@@ -9,6 +9,7 @@ This document contains special instructions or issues related to installing Ubun
    :local:
    :backlinks: top
 
+
 Silencing the Mac default boot chime (BEFORE installing Linux)
 --------------------------------------------------------------
 
@@ -47,6 +48,13 @@ For further reading, here are some additional resources on this issue:
 - https://wiki.archlinux.org/index.php/Mac#Mute_startup_chime
 - http://atodorov.org/blog/2015/04/27/disabling-macbook-startup-sound-in-linux/
 - https://www.howtogeek.com/260693/how-to-disable-the-boot-sound-or-startup-chime-on-a-mac/
+
+
+Selecting your startup disk on an Apple computer
+------------------------------------------------
+
+The ``ALT`` key is the typical Mac startup key used to access the "Startup Manager" at boot time. Holding the ``ALT`` key down while starting your machine allows you to choose other available startup disks or volumes (i.e. a Linux bootable USB drive). If your Mac is using a firmware password, you will be prompted to enter the password. More information on Mac startup key combinations can be found here: https://support.apple.com/en-us/HT201255.
+
 
 Broadcom proprietary wifi driver
 --------------------------------
