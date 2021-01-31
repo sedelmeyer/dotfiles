@@ -33,3 +33,5 @@ jobs:
           run: make vscode
         - name: Install abcde package
           run: make abcde
+        - name: Install Dropbox daemon and CLI
+          run: make dropbox
