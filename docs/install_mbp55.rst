@@ -3,23 +3,52 @@ Installation notes for MacBookPro5,5
 
 This document contains special instructions or issues related to installing Ubuntu 18.04 on a MacBook Pro 13" Mid 2009 (MacBookPro5,5).
 
+Please read this prior to installing Ubuntu, because you will want to silence the Mac default boot chime prior to erasing your existing installation of MacOS from the laptop.
+
 .. contents:: Contents
    :local:
    :backlinks: top
 
-Silencing the Mac default boot chime
-------------------------------------
+Silencing the Mac default boot chime (do this BEFORE installing Ubuntu)
+-----------------------------------------------------------------------
 
-TODO: Add info about silencing boot chime prior to wiping the MacOS installation
+**WARNING: This step must be taken prior to erasing your existing installation of MacOS from your Apple hardware.**
 
+Macs have a distinctive audible "bong" chime that plays at the start of their boot process, just after powering up the machine. This chime lets you know that your machine has passed all of the pre-boot tests, therefore it can be used as a diagnostic tool similar to the audible beep produced by BIOS during startup on a typical PC. However, this chime can also be extremely annoying, particularly if you ever need to boot your machine in a particularly quiet environment. 
+
+It was my experience that I had no control over this startup chime once MacOS was removed from and Ubuntu was installed on my MacBookPro5,5. Where I could previously mute this chime as long as my volume was muted prior to shutdown on MacOS, this had no affect on under Ubuntu and the chime would play at full volume upon each machine boot.
+
+The most definitive fix for this issue is to simply mute this chime directly via ``nvram`` prior to erasing your existing MacOS installation. While some online sources appeared to have had success accomplishing this even after installing Linux on their machine, I had no such luck. Instead, I needed to do a complete reinstall of MacOS from the laptops original install media (i.e. an OS X Snow Leopard install DVD from 2009!!!) in order to execute the following fix in the computer's native MacOS environment.
+
+To avoid the heartache and time this will require, I strongly suggest you perform this fix well-before ever wiping MacOS from your machine as a preliminary step prior to installing Ubuntu (or any other Linux distrubution for that matter!). **To permanently silence the boot chime on your machine (effective even after MacOS has been removed from the system)**, open the terminal in MacOS and run the following ``nvram`` command::
+
+   sudo nvram SystemAudioVolume=%01
+
+Now, try rebooting your system, even with the system's volume turned all the way up, to ensure that the boot chime has successfully been silenced.
+
+Apparently, not all Mac models use the same setting to silence the bootchime via ``nvram SystemAudoVolume``. If you find that this is true for you, try some of these other settings to see if any work for silencing your boot chime::
+
+  sudo nvram SystemAudioVolume=%80
+
+  sudo nvram SystemAudioVolume=%01
+
+  sudo nvram SystemAudioVolume=%00
+
+  sudo nvram SystemAudioVolume=” “
+
+Likewise, if you wish to undo this setting and re-enable your Mac machine's boot chime, you can use this command::
+
+  sudo nvram -d SystemAudioVolume
+
+Once you are done with this step, you are ready [to proceed with your installation of Linux](../README.rst) on your Mac computer.
+
+For further reading, here are some additional resources related to this issue:
+
+- https://www.chriswrites.com/how-to-permanently-turn-off-your-macs-startup-sound/
 - https://askubuntu.com/questions/711155/silence-system-sound-on-startup-mac
-- https://help.ubuntu.com/community/MacBookAir3-2/Narwhal#Disable_the_Mac_Startup_Sound
 - https://wiki.archlinux.org/index.php/Mac#Mute_startup_chime
-- https://askubuntu.com/questions/711155/silence-system-sound-on-startup-mac
-- https://askubuntu.com/questions/564831/mac-nvram-from-ubuntu
 - http://atodorov.org/blog/2015/04/27/disabling-macbook-startup-sound-in-linux/
 - https://www.howtogeek.com/260693/how-to-disable-the-boot-sound-or-startup-chime-on-a-mac/
-- https://www.chriswrites.com/how-to-permanently-turn-off-your-macs-startup-sound/
 
 Broadcom proprietary wifi drivers
 ---------------------------------
