@@ -48,8 +48,8 @@ For further reading, here are some additional resources on this issue:
 - http://atodorov.org/blog/2015/04/27/disabling-macbook-startup-sound-in-linux/
 - https://www.howtogeek.com/260693/how-to-disable-the-boot-sound-or-startup-chime-on-a-mac/
 
-Broadcom proprietary wifi drivers
----------------------------------
+Broadcom proprietary wifi driver
+--------------------------------
 
 In order for the wifi card to work under Linux, the proprietary Broadcom drivers must be installed. For that reason, an Ethernet connection will be required during installation. During installation it is highly-recommended that you both connect an Ethernet cable to the laptop and select the option to install 3rd party software during the Ubuntu install process.
 
@@ -89,10 +89,17 @@ Here are some additional references on steps required to switch to the ``xserver
 - https://askubuntu.com/questions/335285/how-to-change-proprietary-video-driver-using-the-command-line
 - https://askubuntu.com/questions/1032357/how-to-switch-from-nvidia-to-nouveau-drivers-on-ubuntu-18-04
 
-Changing default ``Fn`` key behavior
-------------------------------------
+Changing the default ``Fn`` key behavior
+----------------------------------------
 
-TODO: Add text
+By default, after installing Linux, your Mac machine's F* keys will act as special keys (e.g. brightness controls, volume controls, etc.). If you prefer that the F* keys themselves be primary and that you press the ``Fn`` key to trigger the use of each corresponding special key instead, you will need to update the ``hid_apple.conf`` to reflect the ``fnmode=2`` option.
+
+This fix will be run as part of `the "install_macpro.sh" script <../scripts/install_macpro.sg>`_ executed using the ``make macpro`` command described in this repo's `README.rst <../README.rst>`_ file.
+
+For more information on this keyboard functionality modification and others available for Apple keyboards, please see:
+
+- https://help.ubuntu.com/community/AppleKeyboard#Change_Function_Key_behavior
+- https://wiki.archlinux.org/index.php/Apple_Keyboard#hid_apple_module_options
 
 Fixing ``Failed to Set MokListRT`` boot warning
 -----------------------------------------------
