@@ -32,7 +32,7 @@ This repository is structured as such::
 
 The scripts and settings specified in this repository are written specifically for use on Ubuntu 18.04. Feel free to fork, copy, or use them yourself. Just be warned, your mileage may vary depending on your specific Linux distribution and your specified configuration preferences.
 
-**If you are installing Linux on an Apple manufactured laptop or desktop,** `please read about the Apple-specific issue fixes outlined on this page <docs/intall_mbp55.rst>`_ **prior to installing Ubuntu (or any Linux distribution) on your machine.** In particular, you will want to take the required steps to permanently silence the Mac boot chime prior to erasing MacOS from your machine. 
+**If you are installing Linux on an Apple manufactured laptop or desktop,** `please read about the Apple-specific issue fixes outlined on this page <docs/install_mbp55.rst>`_ **prior to installing Ubuntu (or any Linux distribution) on your machine.** In particular, you will want to take the required steps to permanently silence the Mac boot chime prior to erasing MacOS from your machine. 
 
 1. Ubuntu Installation
 ----------------------
