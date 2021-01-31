@@ -113,6 +113,9 @@ The following ``make`` commands install all desired packages. The scripts associ
 ``make dropbox``
    This command runs the ``install_dropbox.sh`` script and installs the official Dropbox daemon and command line application. For more information on Dropbox setup on Linux, please see https://www.dropbox.com/install?os=lnx and https://ostechnix.com/install-dropbox-in-ubuntu-18-04-lts-server/. You will want to have access to a web browser to complete Dropbox set-up on your machine. 
 
+``make zoom``
+   This command runs the ``install_zoom.sh`` script to download and install the latest version Zoom .deb package from the official Zoom website. Additional information on this install process can be found here: https://support.zoom.us/hc/en-us/articles/204206269-Installing-Zoom-on-Linux
+
 ``make source``
    This command runs the ``install_source.sh`` script and installs, by default, the packages ``light`` from https://github.com/haikarainen/light and ``st`` from https://github.com/sedelmeyer/st. Source code for these packages are downloaded to ``~/Code/source/`` and the packages are then installed directly from that source.
 
