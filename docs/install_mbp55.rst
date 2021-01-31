@@ -92,7 +92,7 @@ Here are some additional references on steps required to switch to the ``xserver
 Changing the default ``Fn`` key behavior
 ----------------------------------------
 
-By default, after installing Linux, your Mac machine's F* keys will act as special keys (e.g. brightness controls, volume controls, etc.). If you prefer that the F* keys themselves be primary and that you press the ``Fn`` key to trigger the use of each corresponding special key instead, you will need to update the ``hid_apple.conf`` to reflect the ``fnmode=2`` option.
+By default, after installing Linux, your Mac machine's F* keys will act as special keys (e.g. brightness controls, volume controls, etc.). If you prefer that the F* keys themselves be primary and that you press the ``Fn`` key to trigger the use of each corresponding special key instead, you will need to update your ``hid_apple.conf`` to reflect the ``fnmode=2`` option.
 
 This fix will be run as part of `the "install_macpro.sh" script <../scripts/install_macpro.sh>`_ executed using the ``make macpro`` command described in this repo's `README.rst <../README.rst/#install-all-required-packages>`_ file.
 
@@ -101,12 +101,28 @@ For more information on this keyboard functionality modification and others avai
 - https://help.ubuntu.com/community/AppleKeyboard#Change_Function_Key_behavior
 - https://wiki.archlinux.org/index.php/Apple_Keyboard#hid_apple_module_options
 
+
 Fixing ``Failed to Set MokListRT`` boot warning
 -----------------------------------------------
 
-TODO: Add text
+After installing Linux on your Mac machine, you will likely be presented with a ``Failed to Set MokListRT`` warning while booting your system. This is non-fatal and the system will proceed to finish booting after a short delay. In order to fix this warning, you must ``sudo cp`` your ``/boot/efi/EFI/ubuntu/grubx64.efi`` file to overwrite ``/boot/efi/EFI/ubuntu/shimx64.efi``. Upon reboot, the warning should no longer appear.
+
+This fix will be run as part of `the "install_macpro.sh" script <../scripts/install_macpro.sh>`_ executed using the ``make macpro`` command described in this repo's `README.rst <../README.rst/#install-all-required-packages>`_ file.
+
+For more information on this, please see:
+
+- https://askubuntu.com/questions/1279602/ubuntu-20-04-failed-to-set-moklistrt-invalid-parameter/1279764#1279764
+
 
 Wake from sleep with lid open issues
 ------------------------------------
 
-TODO: Add text
+Another issue identified running Ubuntu 18.04 on a MacBookPro5,5, is that the machine fails to wake from sleep/suspended mode after opening the laptop lid. This issue appears to happen inconsistently at this time, and I have not yet developed a fix for this issue.
+
+When this issue does appear, the LED indicator light is typically steadily lit rather than undulating as a Mac laptop typically does while sleeping. Upon opening the laptop lid, the LED light turns off, but the screen never turns on.
+
+The only way to resolve it when this happens is to force shutdown the machine by holding down the power button for several seconds. Pressing the power button reboots the machine and everything then works again as expected.
+
+Thus far, this issue occurs less frequently when I have signed out of my user profile prior to closing the laptop lid.
+
+**TODO:** Further research is required to identify a fix for this issue. That fix will be added here once it is resolved.
