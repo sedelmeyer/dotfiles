@@ -32,6 +32,8 @@ This repository is structured as such::
 
 The scripts and settings specified in this repository are written specifically for use on Ubuntu 18.04. Feel free to fork, copy, or use them yourself. Just be warned, your mileage may vary depending on your specific Linux distribution and your specified configuration preferences.
 
+**If you are installing Linux on an Apple manufactured laptop or desktop,** `please read about the Apple-specific issue fixes outlined on this page <docs/install_mbp55.rst>`_ **prior to installing Ubuntu (or any Linux distribution) on your machine.** In particular, you will want to take the required steps to permanently silence the Mac boot chime prior to erasing MacOS from your machine. 
+
 1. Ubuntu Installation
 ----------------------
 
@@ -107,6 +109,15 @@ The following ``make`` commands install all desired packages. The scripts associ
 
 ``make abcde``
    This command runs the ``install_abcde.sh`` script and installs the ABCDE (A Better CD Encoder) package for ripping music CDs. While this package is available in the Ubuntu package repository, the version available for Bionic (i.e. Ubuntu 18.04) is outdated and incompatible with the current MusicBrainz web API. Therefore, this script manually installs the latest version of ``abcde`` along with its dependencies. For more info on this package, please see: https://abcde.einval.com/wiki/
+
+``make dropbox``
+   This command runs the ``install_dropbox.sh`` script and installs the official Dropbox daemon and command line application. For more information on Dropbox setup on Linux, please see https://www.dropbox.com/install?os=lnx and https://ostechnix.com/install-dropbox-in-ubuntu-18-04-lts-server/. You will want to have access to a web browser to complete Dropbox set-up on your machine. 
+
+``make source``
+   This command runs the ``install_source.sh`` script and installs, by default, the packages ``light`` from https://github.com/haikarainen/light and ``st`` from https://github.com/sedelmeyer/st. Source code for these packages are downloaded to ``~/Code/source/`` and the packages are then installed directly from that source.
+
+``make macpro``
+   This command runs the ``install_macpro.sh`` script and executes system fixes required for a MacBook Pro 13" Mid 2009 (i.e. MacBookPro5,5) to function as desired while running Ubuntu 18.04. This includes setting the ``hid_apple.conf`` with ``fnmode=2`` so that F* keys require the use of the Fn key to use special keys (i.e. brightness, volume, etc.). It also includes an EFI fix to resolve the ``Failed to Set MokListRT`` warning at when the system boots. A reboot is required after running ``make macpro``.
 
 2.2. Configure system settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
