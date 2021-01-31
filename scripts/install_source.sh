@@ -4,6 +4,11 @@
 install_light=true
 install_st=true
 
+# set to true if you want to show help menu for light after install.
+# set to false by default to prevent gh-actions test error
+# because CI environment will have no devices for light to use
+call_light=false
+
 # set directory path for downloading source
 source_dir="~/Code/source"
 # make directory path if it does not already exist
@@ -20,7 +25,10 @@ then
     repo_path=${source_dir}/${repo}
     (cd ${source_dir} && git clone https://github.com/haikarainen/light.git)
     (cd ${repo_path} && ./autogen.sh && ./configure && make && sudo make install)
-    light -h # show help to ensure install worked
+    if [ "$call_light" = true ]
+    then
+        light -h # show help to ensure install worked
+    fi
 fi
 
 # install personal forked version of suckless.org simple
