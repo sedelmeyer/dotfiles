@@ -3,14 +3,14 @@ Installation notes for MacBookPro5,5
 
 This document contains special instructions or issues related to installing Ubuntu 18.04 on a MacBook Pro 13" Mid 2009 (MacBookPro5,5).
 
-Please read this prior to installing Ubuntu, because you will want to silence the Mac default boot chime prior to erasing your existing installation of MacOS from the laptop.
+**Please read this prior to installing Ubuntu**, because you will want to silence the Mac default boot chime prior to erasing your existing installation of MacOS from the laptop.
 
 .. contents:: Contents
    :local:
    :backlinks: top
 
 Silencing the Mac default boot chime (BEFORE installing Linux)
------------------------------------------------------------------------
+--------------------------------------------------------------
 
 **WARNING: This step must be taken prior to erasing your existing installation of MacOS from your Apple hardware.**
 
@@ -71,7 +71,7 @@ To install the appropriate driver in Ubuntu 18.04, the ``bcmwl-kernel-source`` d
 Nouveau vs. NVIDIA proprietary graphics card driver
 ---------------------------------------------------
 
-The MacBookPro5,5 uses a NVIDIA GPU, thus you will need to use either the proprietary NVIDIA driver, or the open-source Nouveau driver to utilize the graphics card. Running the ``ubuntu-drivers devices`` command under 18.04 on this machine returns the following output::
+The MacBookPro5,5 uses a NVIDIA GPU, thus you will need to use either the proprietary NVIDIA driver, or the open-source Nouveau driver to utilize the graphics card. Running the ``ubuntu-drivers devices`` command under Ubuntu 18.04 on this machine returns the following output::
 
   == /sys/devices/pci0000:00/0000:00:10.0/0000:02:00.0 ==
   modalias : pci:v000010DEd00000863sv0000106Bsd000000B9bc03sc00i00
@@ -82,9 +82,7 @@ The MacBookPro5,5 uses a NVIDIA GPU, thus you will need to use either the propri
 
 It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process. The proprietary NVIDIA, on the otherhand, causes far more issue. For instance, the NVIDIA driver causes additional distortions while loading the Ubuntu sign-in screen, it flashes an annoyingly large NVIDIA logo during sign-in, it causes some additional distortion while launching applications with the i3 windows manager, and additional fixes are required to get the Mac laptop's screen brightness controls to function properly.
 
-For this reason, I recommend switching to the Nouveau driver after installing Ubuntu (if you had opted to install 3rd party software during the installation process), or to just not bother installing the NVIDIA drivers at all.
-
-Here are some additional references on steps required to switch to the ``xserver-xorg-video-nouveau`` driver from the command line in Ubuntu if you prefer this to using Ubuntu's "Software & Updates" GUI application:
+**For these reasons, I recommend switching to the Nouveau driver after installing Ubuntu** (if you had opted to install 3rd party software during the installation process), or to just not bother installing the NVIDIA drivers at all. Here are some additional references on steps required to switch to the ``xserver-xorg-video-nouveau`` driver from the command line in Ubuntu if you prefer this to using Ubuntu's "Software & Updates" GUI application:
 
 - https://askubuntu.com/questions/335285/how-to-change-proprietary-video-driver-using-the-command-line
 - https://askubuntu.com/questions/1032357/how-to-switch-from-nvidia-to-nouveau-drivers-on-ubuntu-18-04
@@ -94,9 +92,7 @@ Changing the default ``Fn`` key behavior
 
 By default, after installing Linux, your Mac machine's F* keys will act as special keys (e.g. brightness controls, volume controls, etc.). If you prefer that the F* keys themselves be primary and that you press the ``Fn`` key to trigger the use of each corresponding special key instead, you will need to update your ``hid_apple.conf`` to reflect the ``fnmode=2`` option.
 
-This fix will be run as part of `the "install_macpro.sh" script <../scripts/install_macpro.sh>`_ executed using the ``make macpro`` command described in this repo's `README.rst <../README.rst/#install-all-required-packages>`_ file.
-
-For more information on this keyboard functionality modification and others available for Apple keyboards, please see:
+This fix will be run as part of `the "install_macpro.sh" script <../scripts/install_macpro.sh>`_ executed using the ``make macpro`` command described in this repo's `README.rst <../README.rst/#install-all-required-packages>`_ file. For more information on this keyboard functionality modification and others available for Apple keyboards, please see:
 
 - https://help.ubuntu.com/community/AppleKeyboard#Change_Function_Key_behavior
 - https://wiki.archlinux.org/index.php/Apple_Keyboard#hid_apple_module_options
@@ -107,9 +103,7 @@ Fixing ``Failed to Set MokListRT`` boot warning
 
 After installing Linux on your Mac machine, you will likely be presented with a ``Failed to Set MokListRT`` warning while booting your system. This is non-fatal and the system will proceed to finish booting after a short delay. In order to fix this warning, you must ``sudo cp`` your ``/boot/efi/EFI/ubuntu/grubx64.efi`` file to overwrite ``/boot/efi/EFI/ubuntu/shimx64.efi``. Upon reboot, the warning should no longer appear.
 
-This fix will be run as part of `the "install_macpro.sh" script <../scripts/install_macpro.sh>`_ executed using the ``make macpro`` command described in this repo's `README.rst <../README.rst/#install-all-required-packages>`_ file.
-
-For more information on this, please see:
+This fix will be run as part of `the "install_macpro.sh" script <../scripts/install_macpro.sh>`_ executed using the ``make macpro`` command described in this repo's `README.rst <../README.rst/#install-all-required-packages>`_ file. For more information on this, please see:
 
 - https://askubuntu.com/questions/1279602/ubuntu-20-04-failed-to-set-moklistrt-invalid-parameter/1279764#1279764
 
@@ -117,12 +111,6 @@ For more information on this, please see:
 Wake from sleep with lid open issues
 ------------------------------------
 
-Another issue identified running Ubuntu 18.04 on a MacBookPro5,5, is that the machine fails to wake from sleep/suspended mode after opening the laptop lid. This issue appears to happen inconsistently at this time, and I have not yet developed a fix for this issue.
-
-When this issue does appear, the LED indicator light is typically steadily lit rather than undulating as a Mac laptop typically does while sleeping. Upon opening the laptop lid, the LED light turns off, but the screen never turns on.
-
-The only way to resolve it when this happens is to force shutdown the machine by holding down the power button for several seconds. Pressing the power button reboots the machine and everything then works again as expected.
-
-Thus far, this issue occurs less frequently when I have signed out of my user profile prior to closing the laptop lid.
+Another issue identified running Ubuntu 18.04 on a MacBookPro5,5, is that the machine fails to wake from sleep/suspended mode after opening the laptop lid. This issue appears to happen inconsistently at this time, and I have not yet developed a fix for this issue. When this issue does appear, the LED indicator light is typically steadily lit rather than undulating as a Mac laptop typically does while sleeping. Upon opening the laptop lid, the LED light turns off, but the screen never turns on. The only way to resolve it when this happens is to force shutdown the machine by holding down the power button for several seconds. Pressing the power button a second time reboots the machine and everything then works again as expected. **Thus far, this issue occurs less frequently when I have signed out of my user profile prior to closing the laptop lid.**
 
 **TODO:** Further research is required to identify a fix for this issue. That fix will be added here once it is resolved.
