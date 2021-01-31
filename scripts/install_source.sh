@@ -1,13 +1,12 @@
 #!/bin/bash
 
+# Note that this script fails with error code 2 on gh-actions
+# test matrix. Therefore, this script is not tested during CI. 
+# Use and modify with caution.
+
 # set boolean to install specific packages from source
 install_light=true
 install_st=true
-
-# set to true if you want to show help menu for light after install.
-# set to false by default to prevent gh-actions test error
-# because CI environment will have no devices for light to use
-call_light=false
 
 # set directory path for downloading source
 source_dir="~/Code/source"
@@ -25,10 +24,7 @@ then
     repo_path=${source_dir}/${repo}
     (cd ${source_dir} && git clone https://github.com/haikarainen/light.git)
     (cd ${repo_path} && ./autogen.sh && ./configure && make && sudo make install)
-    if [ "$call_light" = true ]
-    then
-        light -h # show help to ensure install worked
-    fi
+    light -h # show help to ensure install worked
 fi
 
 # install personal forked version of suckless.org simple
