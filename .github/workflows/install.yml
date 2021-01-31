@@ -35,3 +35,5 @@ jobs:
           run: make abcde
         - name: Install Dropbox daemon and CLI
           run: make dropbox
+        - name: Install latest Zoom .deb package
+          run: make zoom
