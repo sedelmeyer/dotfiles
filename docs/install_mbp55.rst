@@ -40,7 +40,7 @@ Likewise, if you wish to undo this setting and re-enable your Mac machine's boot
 
   sudo nvram -d SystemAudioVolume
 
-Once you are done with this step, you are ready [to proceed with your installation of Linux](../README.rst) on your Mac computer.
+Once you are done with this step, you are ready `to proceed with your installation of Linux <../README.rst>`_ on your Mac computer.
 
 For further reading, here are some additional resources related to this issue:
 
