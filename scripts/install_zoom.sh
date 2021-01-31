@@ -12,7 +12,7 @@ install_file=${wget_dir}/${install_deb}
 
 wget https://zoom.us/client/latest/${install_deb} -O ${install_file} 
 sudo apt update -y
-(cd ${wget_dir} && sudo apt install ${install_deb})
+(cd ${wget_dir} && sudo apt install ./${install_deb} -y)
 
 echo "Zoom has been installed from the latest available .deb"
 echo "To uninstall Zoom, run the following command:"
