@@ -19,7 +19,7 @@ then
             "Only ${capacity}% battery remaining"
     elif [ ${capacity} -le 20 ]; then
         echo "Battery alert - ${capacity}%"
-        notify-send --urgency=normal \
+        notify-send --urgency=critical \
             "Low battery" \
             "Only ${capacity}% battery remaining"
     fi
