@@ -16,6 +16,13 @@ font pango:monospace 9
 # Set a background color
 exec --no-startup-id xsetroot -solid "#000000"
 
+# Check for system updates at startup of i3
+# Note that this is a custom executable script that must be installed
+exec --no-startup-id alert-updates.sh
+
+# Start dropbox daemon on startup of i3
+exec --no-startup-id dropbox start
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -245,8 +252,6 @@ bindsym --release XF86LaunchA exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdi
 # Area selection screenshot, select area with cursor bounding box after binding
 bindsym --release Shift+XF86LaunchA exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
-# start dropbox daemon on startup of i3
-exec --no-startup-id dropbox start
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a

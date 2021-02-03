@@ -1,4 +1,4 @@
-.PHONY: help dots apt settings conda vscode docker pip cuda1 cuda2 abcde dropbox source macpro zoom
+.PHONY: help dots apt settings conda vscode docker pip cuda1 cuda2 abcde dropbox source macpro zoom bin services
 
 script_dir = scripts
 
@@ -46,3 +46,9 @@ macpro: ## Execute fixes for MacBook Pro 5,5 install [See: scripts/install_macpr
 
 zoom: ## Download and install latest version Zoom .deb [See: scripts/install_zoom.sh]
 	bash $(script_dir)/install_zoom.sh
+
+bin: ## Install executable scripts at /usr/local/bin [See: scripts/install_bin.sh]
+	bash $(script_dir)/install_bin.sh
+
+services: ## Config and enable systemd user services [See: scripts/install_systemd.sh]
+	bash $(script_dir)/install_systemd.sh

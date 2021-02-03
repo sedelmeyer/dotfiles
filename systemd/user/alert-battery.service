@@ -1,0 +1,9 @@
+[Unit]
+Description=Alert for low remaining battery
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/alert-battery.sh
+
+[Install]
+WantedBy=graphical.target
