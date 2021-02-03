@@ -7,6 +7,7 @@ declare -a scripts
 
 scripts=(
     alert-battery.sh
+    alert-updates.sh
 )
 
 printf "\nInstall executable user scripts at /usr/local/bin...\n\n"
@@ -30,7 +31,7 @@ printf "\nConfigure and enable systemctl user services...\n\n"
 # copy service files to ~/.config/systemd/user/ dir
 for service in "${services[@]}"; do
     # copy services to systemd/user/ dir
-    (cd systemd/user/ && cp "${service}.*" ~/.config/systemd/user/)
+    (cd systemd/user/ && cp ${service}.* ~/.config/systemd/user/)
 done
 
 # reload the systemctl daemon to pick up new services
