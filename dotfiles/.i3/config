@@ -211,12 +211,13 @@ exec_always setxkbmap -option caps:ctrl_modifier
 
 # keyboard interaction with the i3 exit menu
 bindsym $mod+x mode "$mode_exit"
-set $mode_exit exit: [k]lock, [l]ogout, [r]eboot, [Shift+s]hutdown
+set $mode_exit exit: [k]lock, [s]uspend, [l]ogout, [Shift+r]eboot, [Shift+s]hutdown
 mode "$mode_exit" {
         bindsym k exec i3lock -c 124950; mode "default"
+        bindsym s exec i3lock -c 124950 && systemctl suspend; mode "default"
         bindsym l exec i3-msg exit
-        bindsym r exec shutdown -r now
-        bindsym Shift+s exec shutdown now
+        bindsym Shift+r exec systemctl reboot
+        bindsym Shift+s exec systemctl poweroff
         bindsym Escape mode "default"
         bindsym Return mode "default"
 }
