@@ -188,12 +188,12 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Sreen brightness controls
 
 # If xbacklight does not work and light is installed
-bindsym XF86MonBrightnessUp exec light -A 2 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec light -A 2 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
 
 # If intel graphics and xbacklight works for hardware
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
 
 # Keyboard backlight brightness controls
 bindsym XF86KbdBrightnessUp exec light -s "sysfs/leds/smc::kbd_backlight" -A 5
@@ -211,12 +211,12 @@ exec_always setxkbmap -option caps:ctrl_modifier
 
 # keyboard interaction with the i3 exit menu
 bindsym $mod+x mode "$mode_exit"
-set $mode_exit exit: [k]lock, [l]ogout, [r]eboot, [s]hutdown
+set $mode_exit exit: [k]lock, [l]ogout, [r]eboot, [Shift+s]hutdown
 mode "$mode_exit" {
         bindsym k exec i3lock -c 124950; mode "default"
         bindsym l exec i3-msg exit
         bindsym r exec shutdown -r now
-        bindsym s exec shutdown now
+        bindsym Shift+s exec shutdown now
         bindsym Escape mode "default"
         bindsym Return mode "default"
 }
