@@ -37,3 +37,7 @@ jobs:
           run: make dropbox
         - name: Install latest Zoom .deb package
           run: make zoom
+        - name: Install executable scripts to /usr/local/bin
+          run: make bin
+        - name: Config and enable systemd user services
+          run: make services

@@ -9,7 +9,7 @@ install_light=true
 install_st=true
 
 # set directory path for downloading source
-source_dir="~/Code/source"
+source_dir=$HOME/Code/source
 # make directory path if it does not already exist
 mkdir -p ${source_dir}
 
