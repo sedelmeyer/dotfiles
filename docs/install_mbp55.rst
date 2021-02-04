@@ -94,6 +94,8 @@ NVIDIA is the preferred driver for this machine
 
 It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process, but appears to be linked to `an unresolvable wake from sleep issue <#wake-from-sleep-with-lid-open-issues>`_. Therefore, it is advisable to install the ``nvidia-340`` driver as is shown in the output above. The NVIDIA driver appears to have the benefit of running your GPU at lower temperatures than the Nouveau driver and it also appears to resolve the wake from sleep issue.
 
+The confirm which driver is actually in use on your machine, run either of these two commands: ``sudo lshw -c display`` or ``sudo lshw -c video``. To identify available drivers for your machine, run the command ``sudo ubuntu-drivers devices``. To install all recommended drivers shown in those results, you can run ``sudo ubuntu-drivers autoinstall``, or if you only want to install the recommended NVIDIA driver shown above, run: ``sudo apt install nvidia-340``. Once installed, restart your machine and the NVIDIA driver will now be in use.
+
 NVIDIA issues and fixes
 """""""""""""""""""""""
 
@@ -122,16 +124,12 @@ to this::
 
    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=vendor"
 
-Next, update grub with the command: ``sudo update-grub``
-
-Now, reboot and your screen brightness controls should work.
+Next, update grub with the command: ``sudo update-grub``. Now, reboot and your screen brightness controls should work.
 
 For more information on screen brightness control with the NVIDIA driver installed, please see:
 
 - https://help.ubuntu.com/community/MacBookPro5-5/Precise#Video
 - https://www.fosslinux.com/41008/install-nvidia-driver-on-ubuntu-command-line-and-gui-ways.htm
-- https://askubuntu.com/questions/335285/how-to-change-proprietary-video-driver-using-the-command-line
-- https://askubuntu.com/questions/1032357/how-to-switch-from-nvidia-to-nouveau-drivers-on-ubuntu-18-04
 
 
 Changing the default ``Fn`` key behavior
@@ -154,7 +152,6 @@ This fix will be run as part of `the "install_macpro.sh" script <../scripts/inst
 
 - https://askubuntu.com/questions/1279602/ubuntu-20-04-failed-to-set-moklistrt-invalid-parameter/1279764#1279764
 
-.. _wake:
 
 Wake from sleep with lid open issues
 ------------------------------------
