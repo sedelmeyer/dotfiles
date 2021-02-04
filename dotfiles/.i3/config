@@ -23,6 +23,9 @@ exec --no-startup-id alert-updates.sh
 # Start dropbox daemon on startup of i3
 exec --no-startup-id dropbox start
 
+# Set backlight level at i3 startup (otherwise will be 100%)
+exec --no-startup-id xbacklight -set 25
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
