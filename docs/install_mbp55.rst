@@ -88,7 +88,7 @@ The MacBookPro5,5 uses a NVIDIA GPU, thus you will need to use either the propri
   driver   : nvidia-340 - distro non-free recommended
   driver   : xserver-xorg-video-nouveau - distro free builtin
 
-It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process. However, the use of the Nouveau driver appears to be linked to :ref:`the wake from sleep issue I have outlined below <wake>`. Therefore, it is probably advisable to install the ``nvidia-340`` driver, which also appears to have the benefit of running your GPU at lower temperatures than the Nouveae driver.  Just be aware to a couple of issues that do arise as a result of the NVIDIA driver, both of which are easily resolved.
+It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process. However, the use of the Nouveau driver appears to be linked to :ref:`the wake from sleep issue I have outlined below<wake>`. Therefore, it is probably advisable to install the ``nvidia-340`` driver, which also appears to have the benefit of running your GPU at lower temperatures than the Nouveae driver.  Just be aware to a couple of issues that do arise as a result of the NVIDIA driver, both of which are easily resolved.
 
 
 - https://askubuntu.com/questions/335285/how-to-change-proprietary-video-driver-using-the-command-line
