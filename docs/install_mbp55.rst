@@ -88,11 +88,51 @@ The MacBookPro5,5 uses a NVIDIA GPU, thus you will need to use either the propri
   driver   : nvidia-340 - distro non-free recommended
   driver   : xserver-xorg-video-nouveau - distro free builtin
 
-It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process. However, the use of the Nouveau driver appears to be linked to :ref:`the wake from sleep issue I have outlined below<wake>`. Therefore, it is probably advisable to install the ``nvidia-340`` driver, which also appears to have the benefit of running your GPU at lower temperatures than the Nouveae driver.  Just be aware to a couple of issues that do arise as a result of the NVIDIA driver, both of which are easily resolved.
 
+NVIDIA is the preferred driver for this machine
+"""""""""""""""""""""""""""""""""""""""""""""""
 
+It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process, but appears to be linked to `an unresolvable wake from sleep issue <#wake>`_. Therefore, it is advisable to install the ``nvidia-340`` driver as is shown in the output above. The NVIDIA driver appears to have the benefit of running your GPU at lower temperatures than the Nouveau driver and it also appears to resolve the wake from sleep issue.
+
+NVIDIA issues and fixes
+"""""""""""""""""""""""
+
+Just be aware to a couple of issues that do arise as a result of the NVIDIA driver, both of which are easily resolved.
+
+**Screen brightness adjustment fix**
+
+Out of the box, you will likely not have control over your screen brightness. To resolve this issue, you will want to edit your ``/usr/share/X11/xorg.conf.d/nvidia-drm-outputclass-ubuntu.conf`` to include the ``"NoLogo"`` and ``"RegistryDwords"`` options shown in the file text shown below::
+
+   Section "OutputClass"
+       Identifier "nvidia"
+       MatchDriver "nvidia-drm"
+       Driver "nvidia"
+       ModulePath "/usr/lib/nvidia-340/xorg"
+       Option "NoLogo" "True"
+       Option "RegistryDwords" "EnableBrightnessControl=1"
+   EndSection
+
+By setting the ``"NoLogo"`` option to ``"True"``, the garish NVIDIA splash screen, which typically appears while logging in will no longer appear. By setting ``"RegistryDwords"`` to ``"EnableBrightnessControl=1"``, saving your changes, and rebooting your system, you should now be able to control your LCD screen brightness using either your screen brightness keys or a command line utility such as ``xbacklight``.
+
+If your screen brightness controls still do not work, you will likely also need to edit your ``grub`` file located at ``/etc/default/grub``, and change the line::
+  
+   GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+to this::
+
+   GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=vendor"
+
+Next, update grub with the command: ``sudo update-grub``
+
+Now, reboot and your screen brightness controls should work.
+
+For more information on screen brightness control with the NVIDIA driver installed, please see:
+
+- https://help.ubuntu.com/community/MacBookPro5-5/Precise#Video
+- https://www.fosslinux.com/41008/install-nvidia-driver-on-ubuntu-command-line-and-gui-ways.htm
 - https://askubuntu.com/questions/335285/how-to-change-proprietary-video-driver-using-the-command-line
 - https://askubuntu.com/questions/1032357/how-to-switch-from-nvidia-to-nouveau-drivers-on-ubuntu-18-04
+
 
 Changing the default ``Fn`` key behavior
 ----------------------------------------
