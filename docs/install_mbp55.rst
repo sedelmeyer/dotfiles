@@ -19,7 +19,7 @@ Macs have a distinctive audible "bong" chime that plays at the start of their bo
 
 It was my experience that I had no control over this startup chime once MacOS was removed from and Ubuntu was installed on my MacBookPro5,5. Where I could previously mute this chime as long as my volume was muted prior to shutdown on MacOS, this had no affect on under Ubuntu and the chime would play at full volume upon each machine boot.
 
-**The most definitive fix for this issue is to simply mute this chime directly via MacOS's ``nvram`` prior to erasing your existing MacOS installation.** While some online sources appeared to have had success accomplishing this even after installing Linux on their machine, I had no such luck. Instead, I needed to do a complete reinstall of MacOS from the laptops original install media (i.e. an OS X Snow Leopard install DVD from 2009!!!) in order to execute the following fix in the computer's native MacOS environment.
+**The most definitive fix for this issue is to simply mute this chime directly via MacOS's** ``nvram`` **prior to erasing your existing MacOS installation.** While some online sources appeared to have had success accomplishing this even after installing Linux on their machine, I had no such luck. Instead, I needed to do a complete reinstall of MacOS from the laptops original install media (i.e. an OS X Snow Leopard install DVD from 2009!!!) in order to execute the following fix in the computer's native MacOS environment.
 
 To avoid the heartache and time this will require, I strongly suggest you perform this fix well-before ever wiping MacOS from your machine as a preliminary step prior to installing Ubuntu (or any other Linux distrubution for that matter!). **To permanently silence the boot chime on your machine (effective even after MacOS has been removed from the system)**, open the terminal in MacOS and run the following ``nvram`` command::
 
@@ -27,7 +27,7 @@ To avoid the heartache and time this will require, I strongly suggest you perfor
 
 Now, try rebooting your system, even with the system's volume turned all the way up, to ensure that the boot chime has successfully been silenced.
 
-Apparently, not all Mac models use the same setting to silence the bootchime via ``nvram SystemAudoVolume``. If you find that this is true for you, try some of these other settings to see if any work for silencing your boot chime::
+Apparently, not all Mac models use the same setting to silence the boot chime via ``nvram SystemAudoVolume``. If you find that this is true for you, try some of these other settings to see if any work for silencing your boot chime::
 
   sudo nvram SystemAudioVolume=%80
 
@@ -88,9 +88,8 @@ The MacBookPro5,5 uses a NVIDIA GPU, thus you will need to use either the propri
   driver   : nvidia-340 - distro non-free recommended
   driver   : xserver-xorg-video-nouveau - distro free builtin
 
-It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process. The proprietary NVIDIA, on the otherhand, causes far more issue. For instance, the NVIDIA driver causes additional distortions while loading the Ubuntu sign-in screen, it flashes an annoyingly large NVIDIA logo during sign-in, it causes some additional distortion while launching applications with the i3 windows manager, and additional fixes are required to get the Mac laptop's screen brightness controls to function properly.
+It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process. However, the use of the Nouveau driver appears to be linked to :ref:`the wake from sleep issue I have outlined below <wake>`. Therefore, it is probably advisable to install the ``nvidia-340`` driver, which also appears to have the benefit of running your GPU at lower temperatures than the Nouveae driver.  Just be aware to a couple of issues that do arise as a result of the NVIDIA driver, both of which are easily resolved.
 
-**For these reasons, I recommend switching to the Nouveau driver after installing Ubuntu** (if you had opted to install 3rd party software during the installation process), or to just not bother installing the NVIDIA drivers at all. Here are some additional references on steps required to switch to the ``xserver-xorg-video-nouveau`` driver from the command line in Ubuntu if you prefer this to using Ubuntu's "Software & Updates" GUI application:
 
 - https://askubuntu.com/questions/335285/how-to-change-proprietary-video-driver-using-the-command-line
 - https://askubuntu.com/questions/1032357/how-to-switch-from-nvidia-to-nouveau-drivers-on-ubuntu-18-04
@@ -115,6 +114,7 @@ This fix will be run as part of `the "install_macpro.sh" script <../scripts/inst
 
 - https://askubuntu.com/questions/1279602/ubuntu-20-04-failed-to-set-moklistrt-invalid-parameter/1279764#1279764
 
+.. _wake:
 
 Wake from sleep with lid open issues
 ------------------------------------
