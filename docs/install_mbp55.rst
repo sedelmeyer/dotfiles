@@ -92,7 +92,7 @@ The MacBookPro5,5 uses a NVIDIA GPU, thus you will need to use either the propri
 NVIDIA is the preferred driver for this machine
 """""""""""""""""""""""""""""""""""""""""""""""
 
-It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process, but appears to be linked to `an unresolvable wake from sleep issue <#wake>`_. Therefore, it is advisable to install the ``nvidia-340`` driver as is shown in the output above. The NVIDIA driver appears to have the benefit of running your GPU at lower temperatures than the Nouveau driver and it also appears to resolve the wake from sleep issue.
+It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process, but appears to be linked to `an unresolvable wake from sleep issue <#wake-from-sleep-with-lid-open-issues>`_. Therefore, it is advisable to install the ``nvidia-340`` driver as is shown in the output above. The NVIDIA driver appears to have the benefit of running your GPU at lower temperatures than the Nouveau driver and it also appears to resolve the wake from sleep issue.
 
 NVIDIA issues and fixes
 """""""""""""""""""""""
