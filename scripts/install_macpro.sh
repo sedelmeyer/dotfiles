@@ -1,9 +1,25 @@
 #!/bin/bash
 
 # Install special steps required for MBP 2009
-
+install_drivers=true
 change_fnmode=true
 fix_moklistrt=true
+
+# install recommended drivers to get broadcom wifi card to work
+# and to ensure NVIDIA driver is used, fixing a wake from sleep issue
+# that is otherwise caused by the Nouveau driver
+if [ "$install_drivers" = true ]
+then
+    sudo ubuntu-drivers devices
+    while true; do
+        read -p "Do you wish to install the recommended drivers?" yn
+        case $yn in
+            [Yy]* ) sudo ubuntu-drivers autoinstall; break;;
+            [Nn]* ) echo "No drivers were installed."; break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+fi
 
 # fnmode=2 makes the function keys primary, and special keys
 # require that fn be held down
