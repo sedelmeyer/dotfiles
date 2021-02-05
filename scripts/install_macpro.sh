@@ -10,9 +10,9 @@ fix_moklistrt=true
 # that is otherwise caused by the Nouveau driver
 if [ "$install_drivers" = true ]
 then
-    sudo ubuntu-drivers devices
+    ubuntu-drivers devices
     while true; do
-        read -p "Do you wish to install the recommended drivers?" yn
+        read -p "Do you wish to install the recommended drivers? [y|n]: " yn
         case $yn in
             [Yy]* ) sudo ubuntu-drivers autoinstall; break;;
             [Nn]* ) echo "No drivers were installed."; break;;
