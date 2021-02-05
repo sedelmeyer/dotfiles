@@ -94,7 +94,7 @@ NVIDIA is the preferred driver for this machine
 
 It has been my experience that the Nouveau driver performs well on this machine, with only some minor pixel distortions during the boot process, but appears to be linked to `an unresolvable wake from sleep issue <#wake-from-sleep-with-lid-open-issues>`_. Therefore, it is advisable to install the ``nvidia-340`` driver as is shown in the output above. The NVIDIA driver appears to have the benefit of running your GPU at lower temperatures than the Nouveau driver and it also appears to resolve the wake from sleep issue.
 
-The confirm which driver is actually in use on your machine, run either of these two commands: ``sudo lshw -c display`` or ``sudo lshw -c video``. To identify available drivers for your machine, run the command ``sudo ubuntu-drivers devices``. To install all recommended drivers shown in those results, you can run ``sudo ubuntu-drivers autoinstall``, or if you only want to install the recommended NVIDIA driver shown above, run: ``sudo apt install nvidia-340``. Once installed, restart your machine and the NVIDIA driver will now be in use.
+The confirm which driver is actually in use on your machine, run either of these two commands: ``sudo lshw -c display`` or ``sudo lshw -c video``. To identify available drivers for your machine, run the command ``ubuntu-drivers devices``. To install all recommended drivers shown in those results, you can run ``sudo ubuntu-drivers autoinstall``, or if you only want to install the recommended NVIDIA driver shown above, run: ``sudo apt install nvidia-340``. Once installed, restart your machine and the NVIDIA driver will now be in use.
 
 NVIDIA issues and fixes
 """""""""""""""""""""""
