@@ -191,8 +191,7 @@ Testing and continuous cntegration (CI) for this repository
 Remote CI with GitHub Actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This repository is configured to use GitHub Actions as a continuous integration (CI) service to test that the install scripts and associated ``make`` commands function without error. There is however a limitation, where hardware dependent scripts cannot be successfully run under CI. This includes the multi-part CUDA installation scripts, which require a reboot between each consecutive script. 
-
+This repository is configured to use GitHub Actions as a continuous integration (CI) service to test that the install scripts and associated ``make`` commands function without error. There is however a limitation, where hardware dependent scripts cannot be successfully run under CI. This includes the multi-part CUDA installation scripts, which require a reboot between each consecutive script. Additionally, the ``systemd`` user services install scrip also cannot be run, because it will fail with the ``Failed to connect to bus: No such file or directory`` error. This is becuase ``systemctl`` talks to the ``systemd`` daemon by using the d-bus, and in the test container (on both GitHub Actions and the local Docker container described below), there is no daemon.
 
 Local testing with Docker
 ^^^^^^^^^^^^^^^^^^^^^^^^^
