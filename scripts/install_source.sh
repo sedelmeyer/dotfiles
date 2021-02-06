@@ -20,7 +20,7 @@ mkdir -p ${source_dir}
 # For more info, see: https://github.com/haikarainen/light
 if [ "$install_light" = true ]
 then
-    sudo apt install -y gcc automake autoconf
+    sudo apt-get install -y gcc automake autoconf
     repo=light
     repo_path=${source_dir}/${repo}
     (cd ${source_dir} && git clone https://github.com/haikarainen/light.git)
@@ -32,7 +32,7 @@ fi
 # terminal (st) from GitHub and install
 if [ "$install_st" = true ]
 then
-    sudo apt install -y libx11-dev libxft-dev
+    sudo apt-get install -y libx11-dev libxft-dev
     repo=st
     repo_path=${source_dir}/${repo}
     (cd ${source_dir} && git clone https://github.com/sedelmeyer/st.git)
