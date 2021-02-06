@@ -20,7 +20,7 @@ mkdir -p ${source_dir}
 # For more info, see: https://github.com/haikarainen/light
 if [ "$install_light" = true ]
 then
-    sudo apt install -y automake autoconf
+    sudo apt install -y gcc automake autoconf
     repo=light
     repo_path=${source_dir}/${repo}
     (cd ${source_dir} && git clone https://github.com/haikarainen/light.git)
