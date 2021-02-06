@@ -29,8 +29,6 @@ jobs:
           run: make docker
         - name: Install pip --user packages
           run: make pip
-        - name: Configure and enable systemd user services
-          run: make services
         - name: Install abcde package
           run: make abcde
         - name: Install Dropbox daemon and CLI
