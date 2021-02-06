@@ -23,6 +23,8 @@ jobs:
         - uses: actions/checkout@v1
         - name: Install apt packages
           run: make apt
+        - name: Install optional packages from source
+          run: make -i source
         - name: Generate dotfile symlinks
           run: make dots
         - name: Install Docker-CE
