@@ -2,7 +2,7 @@
 FROM ubuntu:18.04
 
 # OS updates and install
-RUN apt-get update && apt-get install -y git sudo build-essential
+RUN apt-get update && apt-get install -y apt-utils build-essential git sudo
 
 # Create test user
 RUN useradd -m -s /bin/bash tester
