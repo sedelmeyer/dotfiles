@@ -8,10 +8,11 @@
 remove_download=true
 wget_dir=downloads
 conda_install_script=Miniconda3-latest-Linux-x86_64.sh
+install_location=${HOME}/miniconda3
 
 # download and install script
 wget https://repo.anaconda.com/miniconda/$conda_install_script -P ${wget_dir}/
-(cd ${wget_dir} && bash $conda_install_script)
+(cd ${wget_dir} && bash $conda_install_script -b -u -p ${install_location})
 
 # removed conda install script
 if [ "$remove_download" = true ]
