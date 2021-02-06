@@ -183,6 +183,31 @@ To turn NVIDIA back on::
 
 **Note:** You will need to restart your system in order for any graphics card changes to take effect.
 
+Testing and continuous cntegration (CI) for this repository
+-----------------------------------------------------------
+
+Remote CI with GitHub Actions
+"""""""""""""""""""""""""""""
+
+This repository is configured to use GitHub Actions as a continuous integration (CI) service to test that the install scripts and associated `make` commands function without error. There is however a limitation, where hardware dependent scripts cannot be successfully run under CI. This includes the multi-part CUDA installation scripts, which require a reboot between each consecutive script. 
+
+Local testing with Docker
+"""""""""""""""""""""""""
+
+The scripts and dotfiles in this repository can be tested locally using the provided Dockerfile. This Dockerfile builds an official Ubuntu 18.04 image with a default test user. To build this Docker image with the current `master` branch of this repository cloned to it  and then run it, run this command from the base directory of this repo::
+
+   docker build --tag dotfiles .
+
+Alternatively, if you are trying to test functionality for a specific branch of this repository, first ensure changes to that branch are pushed to GitHub, and then run the following command to build the Docker image with that particular branch cloned to it::
+
+   docker build --tag dotfiles --arg GIT_BRANCH={branch-name} .
+
+Then, to run your Docker image interactively so that you can run your scripts from within it::
+
+   docker run --rm -it dotfiles
+
+
+
 Useful resources
 ----------------
 
