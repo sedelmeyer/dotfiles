@@ -2,6 +2,8 @@
 
 ufw_enable=true
 borg_ppa=true
+podman_ppa=true
+
 dvd_support=true
 
 # Update Ubuntu and get standard repository programs
@@ -92,7 +94,7 @@ packages=(
 
 for pkg in "${packages[@]}"
 do
-    sudo apt install -y "$pkg"
+    sudo apt-get install -y "$pkg"
 done
 
 # enable firewall
@@ -110,12 +112,25 @@ then
     sudo apt install -y borgbackup
 fi
 
+# install podman from Kubic project. It is not in pkg repo for 18.04
+# Read more here:
+# https://podman.io/getting-started/installation.html#linux-distributions
+if [ "$podman_ppa" = true ]
+then
+    . /etc/os-release
+    echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+    curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+    sudo apt-get update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install podman
+fi
+
 # DVD Support
 if [ "$dvd_support" = true ]
 then
-    sudo apt install -y libdvd-pkg
+    sudo apt-get install -y libdvd-pkg
     sudo dpkg-reconfigure libdvd-pkg
 fi
 
-sudo apt upgrade -y
-sudo apt autoremove -y
+sudo apt-get upgrade -y
+sudo apt-get autoremove -y
