@@ -15,6 +15,7 @@ declare -a packages
 
 packages=(
   ## BASICS
+  build-essential
   git
   vim
   make
@@ -28,9 +29,9 @@ packages=(
   xclip
   tmux
   rsync
-  borgbackup
+  # borgbackup
   i3
-  # xbacklight # only works with intel graphic 
+  xbacklight # only works with intel graphic 
   # light # altern to xbacklight, only avail 20.04
   redshift
   vifm
@@ -54,7 +55,8 @@ packages=(
   scrot
   inkscape
   imagemagick
-  fim
+  # fim
+  feh
   ## DEV HEADERS REQUIRED FOR SUCKLESS TOOLS
   libx11-dev
   libxft-dev
@@ -67,9 +69,9 @@ packages=(
   # python3-gpg
   # nautilus-dropbox
   ## OTHERS TO CONSIDER
-  gnome-sushi
+  # gnome-sushi
   # add libreoffice sushi support
-  unoconv
+  # unoconv
   # p7zip
   # p7zip-full
   # clamav
