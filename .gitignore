@@ -6,3 +6,5 @@
 downloads/**
 !downloads/README
 
+# Ignore specific files
+vifminfo
