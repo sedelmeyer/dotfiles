@@ -170,7 +170,7 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
+filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c, evince %c
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
@@ -229,9 +229,12 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 " Images
-filextype *.jpg,*.jpeg,*.png,*.gif
-       \ {View in feh}
-       \ feh -FZ %d --start-at %d/%c 2>/dev/null
+filextype *.jpg,*.jpeg,*.png,*.gif,*.tiff,*.bmp
+        \ {View in feh}
+        \ feh --scale-down %d --start-at %d/%c 2>/dev/null
+filextype *.svg,*ico
+        \ {View in feh}
+        \ feh --magick-timeout 30 --scale-down %c
 " filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm */
 "        \ {View in sxiv} */
 "        \ sxiv %f, */
@@ -239,8 +242,8 @@ filextype *.jpg,*.jpeg,*.png,*.gif
 "        \ gpicview %c, */
 "        \ {View in shotwell} */
 "        \ shotwell, */
-" fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-"         \ convert -identify %f -verbose /dev/null
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ convert -identify %f -verbose /dev/null
 
 " OpenRaster
 filextype *.ora
