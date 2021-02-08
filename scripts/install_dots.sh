@@ -38,3 +38,4 @@ linkDotfile .tmux.conf
 linkDotfile .inputrc
 linkDotfile .cookiecutterrc
 linkDotfile .i3
+linkDotfile .vifm
