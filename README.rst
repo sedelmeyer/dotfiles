@@ -215,13 +215,11 @@ Other documentation included in this repository
 
 Included in the ``docs/`` sub-directory in this repository is additional useful documentation covering specific systems and topics. Currently available documents are linked below:
 
-* [Installation notes for MacBookPro5,5](docs/install_mbp55.rst)
-
+* `Installation notes for MacBookPro5,5 <docs/install_mbp55.rst>`_
    This document contains Linux install instructions specific to the MacBook Pro 13" late-2009. Some of the items in this document will be common to other Apple machines, some might not be. Regardless, this is an important document to review prior to installing Linux on an Apple-manufactured machine, because there is an initial step that should be taken prior to wiping MacOS off of the machine.
 
 
-- [Recovering data from a LUKS encrypted LVM drive](docs/recover_data.rst)
-
+* `Recovering data from a LUKS encrypted LVM drive <docs/recover_data.rst>`_
    This document contains instructions for mounting a LUKS encrypted drive that was set up using LVM logical volumes. This is particularly applicable to recovering data from a hard drive you may have been using as the primary drive for a different Linux machine. A specific use case for this might be recovering data from the drive of a machine that might have experienced a motherboard failure, but for which the hard drive was encrypted and still in good working condition.
 
 
