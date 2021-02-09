@@ -64,6 +64,7 @@ packages=(
   texlive
   pandoc
   graphviz
+  zathura
   libreoffice
   ## OTHER TOOLS
   # python3-gpg
