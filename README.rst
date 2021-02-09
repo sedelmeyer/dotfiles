@@ -21,7 +21,7 @@ This repository is structured as such::
 
    dotfiles/
    ├── deprecated/ <-  No longer used v0.1.0 MacOS install files
-   ├── docs/       <-  Configuration details and notes (future release)  
+   ├── docs/       <-  Configuration details and notes  
    ├── dotfiles/   <-  System dotfiles
    ├── Makefile    <-  Make commands providing a simplified CLI
    ├── README.rst  <-  You're reading it, right now!
@@ -208,9 +208,25 @@ Then, to run your Docker image interactively so that you can run your scripts fr
 
    docker run --rm -it dotfiles
 
+If you are a ``podman`` user instead of ``docker``, I am sure you already know that you can easily use the same commands as shown above, except use "``podman``" in place of "``docker``" for each command.
 
-Useful resources
-----------------
+Other documentation included in this repository
+-----------------------------------------------
+
+Included in the ``docs/`` sub-directory in this repository is additional useful documentation covering specific systems and topics. Currently available documents are linked below:
+
+* [Installation notes for MacBookPro5,5](docs/install_mbp55.rst)
+
+   This document contains Linux install instructions specific to the MacBook Pro 13" late-2009. Some of the items in this document will be common to other Apple machines, some might not be. Regardless, this is an important document to review prior to installing Linux on an Apple-manufactured machine, because there is an initial step that should be taken prior to wiping MacOS off of the machine.
+
+
+- [Recovering data from a LUKS encrypted LVM drive](docs/recover_data.rst)
+
+   This document contains instructions for mounting a LUKS encrypted drive that was set up using LVM logical volumes. This is particularly applicable to recovering data from a hard drive you may have been using as the primary drive for a different Linux machine. A specific use case for this might be recovering data from the drive of a machine that might have experienced a motherboard failure, but for which the hard drive was encrypted and still in good working condition.
+
+
+Other related resources
+-----------------------
 
 * The Ubuntu package repository search: https://packages.ubuntu.com/
 * The TensorFlow GPU support documentation: https://www.tensorflow.org/install/gpu
