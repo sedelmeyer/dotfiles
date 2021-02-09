@@ -3,6 +3,11 @@ Recovering data from a LUKS encrypted LVM drive
 
 After having the motherboard die on one of my laptops, I found myself needing to recover the contents of that laptop's LUKS encrypted drive. The process for doing this is not entirely intuitive, and I needed to consult several sources to get all of the steps correct.
 
+.. contents::
+  :local:
+  :depth: 1
+  :backlinks: top
+
 Required software
 -----------------
 
@@ -19,6 +24,10 @@ Once you have them installed, it's time to decrypt and mount your drive.
 
 Decrypting and mounting your drive
 ----------------------------------
+
+.. contents:: In this section
+  :local:
+  :backlinks: top
 
 The first thing you will want to do is remove the drive you are attempting to recover from your machine, place it in an external disk enclosure, and attach it via USB to a working machine.
 
