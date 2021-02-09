@@ -90,7 +90,7 @@ Once you are done working with your mounted filesystem, there are 3 steps you ne
 
 Next, you must deactivate your active volume group(s). It is wise to first check to see what logical volumes of a volume group are active::
 
-   sudo lvs -S "lvs_active=active && vg_name=external-vg"
+   sudo lvs -S "lv_active=active && vg_name=external-vg"
 
 Then, you can deactivate the desired volume group(s)::
 
