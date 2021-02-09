@@ -58,7 +58,9 @@ Prior to mountig this decrypted LUKS device, if your encrypted drive was set up 
 
    sudo vgdisplay --short
 
-If you see that more than one volume group has the same name (e.g. ``ubuntu-vg``), as will be likely if your other machine was had the same operating system installed on it, you will first need to change the volume group name of your external LUKS device. See those instructions below [ADD LINK]. If your LUKS device volume group name is different, you can proceed. For the sake of simplicity, let's assume our identified volume group is named ``external-vg``. Now, we will inspect the logical volumes contained in this logical group::
+If you see that more than one volume group has the same name (e.g. ``ubuntu-vg``), as will be likely if your other machine was had the same operating system installed on it, **you MUST first change the volume group name of your external LUKS device before proceeding on with these instructions.** Please see the instruction outlining how to accomplish this below in `the section on dealing with duplicate volume group names <#dealing-with-duplicate-volume-group-names>`_.
+
+If your LUKS device volume group name is already different, or you have already taken the steps needed to change that volume group name, you can proceed. For the sake of simplicity, let's assume our identified volume group is named ``external-vg``. Now, we will inspect the logical volumes contained in this logical group::
 
    sudo lvs -o lv_name,lv_size -S vg_name=external-vg
 
