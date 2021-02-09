@@ -2,6 +2,8 @@
 
 ufw_enable=true
 borg_ppa=true
+podman_ppa=true
+
 dvd_support=true
 
 # Update Ubuntu and get standard repository programs
@@ -13,6 +15,7 @@ declare -a packages
 
 packages=(
   ## BASICS
+  build-essential
   git
   vim
   make
@@ -26,9 +29,9 @@ packages=(
   xclip
   tmux
   rsync
-  borgbackup
+  # borgbackup
   i3
-  # xbacklight # only works with intel graphic 
+  xbacklight # only works with intel graphic 
   # light # altern to xbacklight, only avail 20.04
   redshift
   vifm
@@ -52,7 +55,8 @@ packages=(
   scrot
   inkscape
   imagemagick
-  fim
+  # fim
+  feh
   ## DEV HEADERS REQUIRED FOR SUCKLESS TOOLS
   libx11-dev
   libxft-dev
@@ -60,14 +64,15 @@ packages=(
   texlive
   pandoc
   graphviz
+  zathura
   libreoffice
   ## OTHER TOOLS
   # python3-gpg
   # nautilus-dropbox
   ## OTHERS TO CONSIDER
-  gnome-sushi
+  # gnome-sushi
   # add libreoffice sushi support
-  unoconv
+  # unoconv
   # p7zip
   # p7zip-full
   # clamav
@@ -92,7 +97,7 @@ packages=(
 
 for pkg in "${packages[@]}"
 do
-    sudo apt install -y "$pkg"
+    sudo apt-get install -y "$pkg"
 done
 
 # enable firewall
@@ -110,12 +115,25 @@ then
     sudo apt install -y borgbackup
 fi
 
+# install podman from Kubic project. It is not in pkg repo for 18.04
+# Read more here:
+# https://podman.io/getting-started/installation.html#linux-distributions
+if [ "$podman_ppa" = true ]
+then
+    . /etc/os-release
+    echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+    curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+    sudo apt-get update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install podman
+fi
+
 # DVD Support
 if [ "$dvd_support" = true ]
 then
-    sudo apt install -y libdvd-pkg
+    sudo apt-get install -y libdvd-pkg
     sudo dpkg-reconfigure libdvd-pkg
 fi
 
-sudo apt upgrade -y
-sudo apt autoremove -y
+sudo apt-get upgrade -y
+sudo apt-get autoremove -y

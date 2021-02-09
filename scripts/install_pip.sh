@@ -7,7 +7,7 @@ declare -a python_pkgs
 python_pkgs=(
   pipenv
   cookiecutter
-  docker-compose
+  # docker-compose
 )
 
 for pypkg in "${python_pkgs[@]}"
