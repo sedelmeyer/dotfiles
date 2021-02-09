@@ -3,7 +3,7 @@ Recovering data from a LUKS encrypted LVM drive
 
 After having the motherboard die on one of my laptops, I found myself needing to recover the contents of that laptop's LUKS encrypted drive. The process for doing this is not entirely intuitive, and I needed to consult several sources to get all of the steps correct.
 
-.. contents::
+.. contents:: Contents
   :local:
   :depth: 1
   :backlinks: top
@@ -103,6 +103,24 @@ Finally, you will need to remove the ``encrupted_device`` LUKS device mapping an
    sudo cryptsetup luksClose encrypted_device
 
 **Congratulations! You can now disconnect your external drive.**
+
+Dealing with duplicate volume group names
+-----------------------------------------
+
+If both your old system (from which the external drive was taken) and new system (i.e. the one on your current machine) are the same Linux distributions, then it is very likely that both will have identical volume group names. This MUST be dealt with prior to trying to activate the volume group contained on your external drive. Active volume groups with duplicate name are not allowed!
+
+After completing `Step 2 above <#open-your-luks-device-using-cryptsetup>`_, once you identify that your have a duplicate volume group name on your external drive, you will want to change the name of that volume group. Just note that you will no longer be able to boot from that external drive once you have changed its volume group name. But this should not be too big of an issue, because you can always change the volume group back to its original name by repeating the commands below, substituting the new name with its original name.
+
+First, run the following command to identify external drive volume group's UUID::
+
+   sudo vgdisplay
+
+Next, using that UUID (let's pretend it is ``UUID: a123-y321z``), you can rename that volume group to ``new-external-vg`` with this command::
+
+   sudo vgrename a123-y321z new-external-vg
+
+Now, if you rerun ``sudo vgdisplay``, you should see the external volume group listed by its new name. Once this is complete, you can proceed on with `Step 3 above <#activate-your-lvm-logical-volumns>`_.
+
 
 Additional Resources
 --------------------
