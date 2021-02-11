@@ -97,6 +97,10 @@ set backspace=indent,eol,start
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+" Mutt specific settings (turn of line width)
+autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=0 nonumber digraph nolist
+autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail wm=0 tw=0 nonumber digraph nolist
+
 " Show file options above the command line
 set wildmenu
 
