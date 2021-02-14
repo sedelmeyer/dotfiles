@@ -114,6 +114,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" If using Windows, comment out the above and instead, run this
+" PowerShell command:
+" iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+"     ni $HOME/vimfiles/autoload/plug.vim -Force
+
+" Next, open Vim and call :PlugInstall
+
 " Install plugins using vimplug
 
 " Specify a directory for plugins
