@@ -1,0 +1,37 @@
+set ssl_force_tls = yes
+set abort_nosubject = ask-yes
+set mail_check = 60
+set timeout = 10
+set sort = "reverse-date-received"
+set signature = "~/.mutt/signature"
+set copy = no
+set mailcap_path = "~/.mutt/mailcap"
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt/"
+set sidebar_visible = yes
+set sidebar_width = 22
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set text_flowed = yes
+
+# Source default account configuration
+source "gpg -dq ~/.mutt/secret.gpg |"
+
+# toggle sidebar
+bind index,pager B sidebar-toggle-visible
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+mailboxes =INBOX =+Temporary
+
+macro index gd "<change-folder>$postponed<enter>" "go to drafts"
+macro index gs "<change-folder>$record<enter>" "go to sent"
+macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
+macro index gt "<change-folder>$trash<enter>" "go to trash"
+
+auto_view text/html                                      # view html automatically
+alternative_order text/plain text/enriched text/html     # save html for last
+# source: http://jasonwryan.com/blog/2012/05/12/mutt/
+
+# macro pager \cb <pipe-entry>'w3m'<enter> 'Follow links in w3m'
+# macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/<enter><shell-escape>$BROWSER ~/.cache/mutt/<enter>"
