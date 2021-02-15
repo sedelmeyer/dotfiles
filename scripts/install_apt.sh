@@ -2,7 +2,7 @@
 
 ufw_enable=true
 borg_ppa=true
-podman_ppa=true
+podman_ppa=false
 
 dvd_support=true
 
