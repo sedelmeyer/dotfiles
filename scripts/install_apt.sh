@@ -2,7 +2,7 @@
 
 ufw_enable=true
 borg_ppa=true
-podman_ppa=true
+podman_ppa=false
 
 dvd_support=true
 
@@ -82,7 +82,7 @@ packages=(
   # gnome-tweak-tool
   # shunit2
   # chromium-browser
-  # mutt
+  mutt
   # notmuch-mutt
   # adb
   # duplicity
@@ -91,8 +91,8 @@ packages=(
   # calcurse
   # khal
   # lynx
-  # w3m
-  # w3m-img
+  w3m
+  w3m-img
 )
 
 for pkg in "${packages[@]}"

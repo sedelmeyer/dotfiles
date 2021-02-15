@@ -25,11 +25,13 @@ source ~/.profile
 # printf "\n# set PATH so it includes python user packages" >> ~/.profile
 # printf "export PATH=\$PATH:\$HOME/.local/bin" >> ~/.profile
 
+printf "\nThe following pip packages are installed and on PATH:\n\n"
 # confirm path is set and verify installed versions
 for pypkg in "${python_pkgs[@]}"
 do
     "$pypkg" --version
 done
 
-printf "\nRun this command to finish your pip user installs:"
-printf "\n\n    source ~/.profile\n\n"
+echo ""
+# execute bash so that path is still active after script exit
+exec bash

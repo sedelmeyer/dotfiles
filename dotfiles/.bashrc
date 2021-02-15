@@ -7,6 +7,7 @@ bind '"jk":"\e"'
 # set VISUAL also, because some programs call visual instead of EDITOR
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export BROWSER=/usr/bin/firefox
 
 # aliases
 alias o=xdg-open

@@ -202,7 +202,7 @@ The scripts and dotfiles in this repository can be tested locally using the prov
 
 Alternatively, if you are trying to test functionality for a specific branch of this repository, first ensure changes to that branch are pushed to GitHub, and then run the following command to build the Docker image with that particular branch cloned to it::
 
-   docker build --tag dotfiles --arg GIT_BRANCH={branch-name} .
+   docker build --tag dotfiles --build-arg GIT_BRANCH={branch-name} .
 
 Then, to run your Docker image interactively so that you can run your scripts from within it::
 

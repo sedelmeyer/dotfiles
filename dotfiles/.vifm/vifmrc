@@ -7,6 +7,10 @@
 
 " ------------------------------------------------------------------------------
 
+" Show hidden files by default on startup
+
+set dotfiles
+
 " This is the actual command used to start vi.  The default is vim.
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
@@ -242,8 +246,13 @@ filextype *.svg,*ico
 "        \ gpicview %c, */
 "        \ {View in shotwell} */
 "        \ shotwell, */
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ convert -identify %f -verbose /dev/null
+" fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+"        \ convert -identify %f -verbose /dev/null
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,
+        \ img-preview.sh %px %py %pw %ph %c
+        \ %pc
+        \ img-preview-clear.sh %px %py %pw %ph
+
 
 " OpenRaster
 filextype *.ora

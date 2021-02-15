@@ -1,0 +1,10 @@
+text/html; ${BROWSER} %s &; test=test -n ${DISPLAY}; needsterminal;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+# image/*; w3m %s -o ext_image_viewer=0;
+image/*; feh --scale-down %s ; copiousoutput;
+image/svg; feh --magick-timeout 30 --scale-down %s ; copiousoutput;
+
+application/pdf; zathura %s ; copiousoutput;
+# application/msword; soffice %s; test=test -n ${DISPLAY};
+application/msword; soffice --cat %s ; copiousoutput;

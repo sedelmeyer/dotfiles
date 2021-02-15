@@ -8,3 +8,8 @@ downloads/**
 
 # Ignore specific files
 vifminfo
+
+# Ignore mutt files
+dotfiles/.mutt/*
+!dotfiles/.mutt/mailcap
+!dotfiles/.mutt/scripts

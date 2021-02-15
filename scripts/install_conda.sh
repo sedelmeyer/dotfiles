@@ -25,16 +25,23 @@ fi
 echo 'export PATH="~/miniconda3/bin:$PATH"' >> ~/.bashrc
 
 # Reload default profile
-# Set PS1 so that .bashrc can be sourced in script
-# Why do we do this? See here: https://askubuntu.com/a/896723
-PS1=true
-source ~/.bashrc
+# Here we source new .bashrc ommitting initial lines
+# Why do we do this? See here: https://askubuntu.com/a/1041348
+eval "$(cat ~/.bashrc | tail -n +10)"
+
+# initialize conda
+conda init
 
 # update to latest version of conda
 conda update -y conda
 
 # install python 3.7 environment for specific projects
-conda create --name py37 python=3.7 pip
+conda create -y --name py37 python=3.7 pip
 
-printf "\nRun this command to finish your conda setup:"
-printf "\n\n    source ~/.bashrc\n\n"
+# print final summary of results
+conda_ver=`conda --version`
+printf "\nMiniconda3 is installed and ${conda_ver} is on PATH\n\n"
+printf "A Python 3.7 conda env named py37 has also been installed\n\n"
+
+# execute bash so that bashrc does not need to be sourced
+exec bash
