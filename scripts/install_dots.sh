@@ -41,6 +41,7 @@ linkDotfile .i3
 linkDotfile .vifm
 linkDotfile .muttrc
 linkDotfile .mutt
+linkDotfile .abcde.conf
 
 printf "\nThe new .bashrc has been sourced to initialize updated settings.\n\n"
 
