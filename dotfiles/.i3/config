@@ -48,6 +48,9 @@ set $right l
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# control floating window max size to prevent spillover off screen
+floating_maximum_size 950 x 700
+
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec st -e tmux
