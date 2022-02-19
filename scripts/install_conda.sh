@@ -35,6 +35,10 @@ conda init
 # update to latest version of conda
 conda update -y conda
 
+# install pip inside base conda environment so that
+# the separate install_pip.sh script runs as expected
+conda install pip
+
 # install python 3.7 environment for specific projects
 conda create -y --name py37 python=3.7 pip
 
